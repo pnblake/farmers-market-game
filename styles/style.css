@@ -9,23 +9,18 @@ body {
   color: #E6F4F1;
   min-height: 100vh;
   max-width: 90vw;
-  /* Background gradient generated with: https://www.css-gradient.com/ */
   background: rgba(248, 212, 83, 1.0);
   background: -webkit-linear-gradient(bottom, rgba(248, 212, 83, 1.0), rgba(1, 161, 255, 1.0));
   background: -moz-linear-gradient(bottom, rgba(248, 212, 83, 1.0), rgba(1, 161, 255, 1.0));
   background: linear-gradient(to top, rgba(248, 212, 83, 1.0), rgba(1, 161, 255, 1.0));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-footer {
-  min-width: 100vw;
-  min-height: 10vh;
-  background-color: #3D4756;
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: repeat(7, 1fr);
+main {
+  display: flex;
+  margin-top: 2rem;
 }
 
 .sun {
@@ -37,6 +32,69 @@ footer {
   filter: blur(5px);
   -webkit-animation: spin 120s infinite linear;
   animation: spin 120s infinite linear;
+  z-index: -2;
+}
+
+.market-stand-container {
+  margin: 0 auto;
+}
+
+.market-stand {
+  width: 50rem;
+  z-index: -1;
+  margin-top: 3rem;
+}
+
+.message-box{
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 1rem;
+  margin: 0 auto;
+  min-width: 50rem;
+  min-height: 20vh;
+  color: #f4f4f0;
+  padding: 1rem;
+  border-radius: 15px;
+  background-image: url("../media/blackboard_texture.jpg");
+  background-size: cover;
+}
+
+footer {
+  min-width: 100vw;
+  min-height: 5vh;
+  background-color: #3D4756;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.footer-item {
+  padding: 0.2rem;
+  display: flex;
+}
+
+.footer-box-1 {
+  border-right: 1px solid #000000;
+}
+
+.footer-box-2 {
+  border-right: 1px solid #000000;
+}
+
+.footer-box-3 {
+  border-right: 1px solid #000000;
+}
+
+.footer-box-4 {
+  border-right: 1px solid #000000;
+}
+
+.footer-box-5 {
+  border-right: 1px solid #000000;
+}
+
+.footer-box-6 {
+  border-right: 1px solid #000000;
 }
 
 @-webkit-keyframes spin {
