@@ -1,4 +1,4 @@
-# farmers-market-game
+# Farmers' Market: A game of buying and selling
 
 
 

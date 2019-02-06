@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
 </head>
 <body>
+  <div class="bg"></div>
   <!-- Here comes the sun, little darling -->
   <svg viewBox="0 0 500 500" class="sun">
       <g transform="matrix(2.026028, 0, 0, 2.039949, -245.905258, -186.545959)" style="">
@@ -26,22 +27,31 @@
 
 
   <main>
-    <div class="market-stand-container">
-        <img src="media/stand.svg" alt="Farmer's market stand." class="market-stand">
+    <div class="message-box">
+        <p>Test</p>
+    </div>
+    
+    <div class="play-options-box">
+      <div class="buy-sell-nothing-buttons-box">
+        <a href="#" class="play-option-button buy-button">Buy</a>
+        <a href="#" class="play-option-button sell-button">Sell</a>
+        <a href="#" class="play-option-button do-nothing-button">Do Nothing</a>
+      </div>
     </div>
 
-    
-
-
-
-
+    <div class="inventory-and-market-price-container">
+      <div class="inventory-box">
+        <p>Your inventory</p>
+      </div>
+      <div class="market-price-lists">
+        <p>Market prices</p>
+      </div>
+    </div>
   </main>
 
-  <div class="message-box">
-      <p>Test</p>
-  </div>
+  
 
-  <footer>
+  <!-- <footer>
     <div class="footer-item footer-box-1"></div>
     <div class="footer-item footer-box-2"></div>
     <div class="footer-item footer-box-3"></div>
@@ -50,7 +60,7 @@
     <div class="footer-item footer-box-6"></div>
     <div class="footer-item footer-box-7"></div>
 
-  </footer>
+  </footer> -->
   
   <script src="js/main.js"></script>
 </body>
