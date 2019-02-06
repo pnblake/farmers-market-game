@@ -25,17 +25,16 @@ body {
   left: 0;
   right: 0;
   z-index: -1;
-  filter: blur(1.5px);
+  /* filter: blur(1.5px); */
 }
 
 main {
   margin: auto;
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.25);
-  min-width: 60rem;
-  min-height: 80vh;
+  min-width: 60%;
+  min-height: 80%;
   display: grid;
-  grid-template-rows: 2fr 1fr 1fr 1fr 2fr;
+  grid-template-rows: 2fr 0.5fr 1fr 0.5fr 2fr;
   grid-template-columns: 1fr;
 }
 
@@ -67,13 +66,40 @@ main {
 .play-options-box {
   grid-row: 3;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.play-option-button {
+  margin: 0 auto;
+  /* font-size: 3rem; */
+  background: orange;
+  text-decoration: none;
+  font-family: 'Pacifico', cursive;
+  color: slategray;
+  padding: 1% 2%;
+  border-radius: 10px;
 }
 
 .inventory-and-market-price-container {
+  font-family: 'Allerta Stencil', sans-serif;
   grid-row: 5;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-image: url("../media/blackboard_texture.jpg");
+  background-size: cover;
+  display: flex;
+  border-radius: 15px;
+}
+
+.inventory-box {
+  width: 50%;
+  padding: 1rem;
+}
+
+.market-price-lists {
+  width: 50%;
+  padding: 1rem;
+  border-left: 1px solid white;
 }
 
 @-webkit-keyframes spin {
