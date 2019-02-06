@@ -7,7 +7,7 @@ The premise of the game is simple: You begin with $1000 loan to start your fruit
 
 Every day, you are given a new scenario (see below) will cause fruit and vegetable prices to fluctuate. Your goal is to take advantage of swings in the market to earn a profit – buy low, sell high!
 
-Each day you may do one transaction - buying, selling, or doing nothing (also considered a transaction).
+Each day you may make one transaction - buy, sell, or _doing nothing_ (also considered a transaction).
 
 But be on the look out, the bank comes knocking every 7 days and collects $25 from your cash on hand.
 
@@ -30,6 +30,7 @@ Here are the possible scenarios for each round.
 8. The stand beside you was damaged over night. You like the vendor, so you offer $15 to help them repair it. [76-80]
 9. You worry that your great produce isn't viral enough, so you paid $50 to an influencer to 'gram your stand. #FarmerFestival [81-90]
 10. Your business license needs to be renewed, you pay a $35 tax. [91-100]
+11. 
 
 
 

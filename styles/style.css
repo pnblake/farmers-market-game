@@ -83,6 +83,8 @@ main {
 
 .inventory-and-market-price-container {
   font-family: 'Allerta Stencil', sans-serif;
+  font-size: 18pt;
+  line-height: 8pt;
   grid-row: 5;
   width: 100%;
   background-image: url("../media/blackboard_texture.jpg");
@@ -100,6 +102,12 @@ main {
   width: 50%;
   padding: 1rem;
   border-left: 1px solid white;
+}
+
+.bottom-box-heading {
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: underline;
 }
 
 @-webkit-keyframes spin {
