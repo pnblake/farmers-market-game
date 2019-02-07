@@ -63,7 +63,7 @@ doNothingButton.addEventListener("click", doNothing);
 
 
 ///////////////////////////////////////////////////////////
-//MISCELLANEOUS VARIABLES
+//MISCELLANEOUS VARIABLES                                //
 ///////////////////////////////////////////////////////////
 const startupMessage = "Welcome to the farmer's market! You've just followed your dreams and opened your fruit and vegetable stand at the market. <br><br> But you couldn't do it alone – you've had to depend on BankCorp to offer you a loan, and they want to see their money back!   A representative from their office will be visiting you every 7 days to collect $25. <br><br> If you can turn a profit and pay off your loan - you win! However, if your cash box runs dry – you lose! <br><br> Each day, you'll get a scenario here that will drive fluctuations in market prices.  Prices will always vary a little bit, but the news of the day will affect one commodity a lot. <br><br> Each day, you can make one transaction – or decide to do nothing. <br><br> Now, go out there and make some money! BankCorp will be calling soon!";
 
@@ -78,6 +78,7 @@ function newDay(){
     checkWinLose();
     debtCollector();
     generalMarketVolatility();
+    loadScenario();
     updateDisplayedDay();
     updateDisplayedCash();
     updateDisplayedLoanAmount();
@@ -89,6 +90,11 @@ function newDay(){
     //Update Price because of scenario function here
 
     //Bonus: Make sun set and rise again.
+}
+
+function loadScenario(){
+    let rando = parseInt(getRandomNumber(0, 500), 10);
+    console.log(rando);
 }
 
 function buyProduce() {
@@ -209,7 +215,7 @@ function updateDisplayedInventory(){
     avocadosInventoryNumber.textContent = avocados.userQuantity;
     applesInventoryNumber.textContent = apples.userQuantity;
     grapesInventoryNumber.textContent = grapes.userQuantity;
-    peppersInventoryNumber.textContent = grapes.userQuantity;
+    peppersInventoryNumber.textContent = peppers.userQuantity;
 }
 
 function updateDisplayedBoughtPrice(){
@@ -223,15 +229,16 @@ function updateDisplayedBoughtPrice(){
 
 function generalMarketVolatility(){
     //This function will cause market prices to fluctuate a little bit each round
-    for (let i = 0; i < fruitCollection.length; i++){
-        let currentProduce = fruitCollection[i];
-        let oldCurrentProducePrice = currentProduce.marketPrice;
-        let changeFactor = getRandomNumber(-0.5, 0.5);
-        let newCurrentProducePrice = oldCurrentProducePrice + (oldCurrentProducePrice*changeFactor);
-        newCurrentProducePrice = newCurrentProducePrice.toFixed(2);
-        newCurrentProducePrice = parseFloat(newCurrentProducePrice);
-        currentProduce.marketPrice = newCurrentProducePrice;
-    }
+    // for (let i = 0; i < fruitCollection.length; i++){
+    //     let currentProduce = fruitCollection[i];
+    //     let oldCurrentProducePrice = currentProduce.marketPrice;
+    //     let changeFactor = getRandomNumber(-0.5, 0.5);
+    //     let newCurrentProducePrice = oldCurrentProducePrice + (oldCurrentProducePrice*changeFactor);
+    //     newCurrentProducePrice = newCurrentProducePrice.toFixed(2);
+    //     newCurrentProducePrice = parseFloat(newCurrentProducePrice);
+    //     currentProduce.marketPrice = newCurrentProducePrice;
+    // }
+    setInitialMarketPrices();
 }
 
 function debtCollector() {
@@ -259,12 +266,6 @@ function convertToPriceFormat(num){
     return priceNumber;
 }
 
-
-///////////////////////////////////////////////////////////
-//STARTUP FUNCTIONS
-//These are for when the game first starts
-///////////////////////////////////////////////////////////
-
 function getRandomPrice(b, a){
     //Returns a random price between numbers b (min) and a (max).
     let randoNum = getRandomNumber(b, a);
@@ -285,7 +286,6 @@ function setInitialMarketPrices() {
         currentFruit.marketPrice = initialPrice;
         // console.log(`The price of ${fruitCollection[i].name} is now ${fruitCollection[i].marketPrice}.`);
     }
-    updateDisplayedMarketPrice();
     return true;
 }
 
@@ -294,3 +294,4 @@ function setInitialMarketPrices() {
 ///////////////////////////////////////////////////////////
 updateMessageBox(startupMessage);
 setInitialMarketPrices();
+updateDisplayedMarketPrice();
