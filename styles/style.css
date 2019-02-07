@@ -70,6 +70,7 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  /* border-bottom: 1px solid black; */
 }
 
 .finance-info-string {
@@ -78,7 +79,7 @@ main {
   padding: 1% 2%;
   background: orange;
   border-radius: 10px;
-  color: slategray;
+  color: white;
   font-family: 'Pacifico', cursive;
 }
 
@@ -87,21 +88,57 @@ main {
   font-weight: bolder;
 }
 
+.transaction-options-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20pt;
+}
+
+.quantity-input-container {
+  margin-left: 3%;
+  display: flex;
+  border-left: 1px dashed white;
+  font-size: 16pt;
+  padding-left: 3%;
+  align-items: baseline;
+}
+
+.quantity-input {
+  padding: 10%;
+  font-size: 18pt;
+}
+
 .play-options-box {
-  grid-row: 3;
+  grid-row: 4;
   width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .play-option-button {
-  margin: 0 auto;
-  background: orange;
   text-decoration: none;
   font-family: 'Pacifico', cursive;
-  color: slategray;
   padding: 1% 2%;
   border-radius: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.buy-button {
+  background: red;
+  color: white;
+}
+
+.sell-button {
+  background: green;
+  color: white;
+}
+
+.do-nothing-button {
+  background: gray;
+  color: white;
 }
 
 .inventory-and-market-price-container {
