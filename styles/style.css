@@ -65,6 +65,28 @@ main {
   background-size: cover;
 }
 
+.finance-status-box {
+  grid-row: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.finance-info-string {
+  font-family: sans-serif;
+  font-size: 16pt;
+  padding: 1% 2%;
+  background: orange;
+  border-radius: 10px;
+  color: slategray;
+  font-family: 'Pacifico', cursive;
+}
+
+.finance-number {
+  font-weight: normal;
+  font-weight: bolder;
+}
+
 .play-options-box {
   grid-row: 3;
   width: 100%;
@@ -74,7 +96,6 @@ main {
 
 .play-option-button {
   margin: 0 auto;
-  /* font-size: 3rem; */
   background: orange;
   text-decoration: none;
   font-family: 'Pacifico', cursive;

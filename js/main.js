@@ -1,4 +1,6 @@
+///////////////////////////////////////////////////////////
 //GAME PLAY VARIABLES
+///////////////////////////////////////////////////////////
 let day = 1;
 let cash = 1000;
 let loanAmount = 1000;
@@ -20,40 +22,32 @@ let apples = new Fruit("Apples", 0, 0.00, 0.00, 1.50, 3.50);
 let grapes = new Fruit("Grapes", 0, 0.00, 0.00, 3.00, 5.00);
 let peppers = new Fruit("Peppers", 0, 0.00, 0.00, 0.75, 3.50);
 let fruitCollection = [carrots, avocados, apples, grapes, peppers];
-//END GAMEPLAY VARIABLES
 
 
+///////////////////////////////////////////////////////////
 //DOM VARIABLES
+///////////////////////////////////////////////////////////
 const messageBox = document.body.querySelector(".message-box");
 const displayedCarrotPrice = document.body.querySelector(".carrots-market-price-number");
 const displayedAvocadosPrice = document.body.querySelector(".avocados-market-price-number");
 const displayedApplesPrice = document.body.querySelector(".apples-market-price-number");
 const displayedGrapesPrice = document.body.querySelector(".grapes-market-price-number");
 const displayedPeppersPrice = document.body.querySelector(".peppers-market-price-number");
-//END DOM VARIABLES
 
+
+///////////////////////////////////////////////////////////
 //MISCELLANEOUS VARIABLES
+///////////////////////////////////////////////////////////
 const startupMessage = "Welcome to the farmer's market! You've just followed your dreams and opened your fruit and vegetable stand at the market. <br><br> But you couldn't do it alone – you've had to depend on BankCorp to offer you a loan, and they want to see their money back!   A representative from their office will be visiting you every 7 days to collect $25. <br><br> If you can turn a profit and pay off your loan - you win! However, if your cash box runs dry – you lose! <br><br> Each day, you'll get a scenario here that will drive fluctuations in market prices.  Prices will always vary a little bit, but the news of the day will affect one commodity a lot. <br><br> Each day, you can make one transaction – or decide to do nothing. <br><br> Now, go out there and make some money! BankCorp will be calling soon!";
-//END MISCELLANEOUS VARIABLES
-
-
-//THIS IS THE MAIN FUNCTION IN WHICH THE GAME WILL RUN.
-function farmersMarket() {
-    console.log("New game started.");
-
-    //Update the message box with an initial message.
-    updateMessageBox(startupMessage);
-
-    //Set the initial market prices 
-
-}
 
 
 
-//
+
+
+///////////////////////////////////////////////////////////
 //GAMEPLAY FUNCTIONS
 //These will be called throughout the game by the main function above
-//
+///////////////////////////////////////////////////////////
 function updateMessageBox(newMessage){
     //This function updates the message box with an argued string.
     messageBox.innerHTML = `<p>${newMessage}</p>`;
@@ -82,11 +76,10 @@ function updateDisplayedMarketPrice(){
     displayedPeppersPrice.textContent = peppers.marketPrice;
 }
 
-
-//
+///////////////////////////////////////////////////////////
 //STARTUP FUNCTIONS
 //These are for when the game first starts
-//
+///////////////////////////////////////////////////////////
 
 function getRandomPrice(b, a){
     //Returns a random price between numbers b (min) and a (max).
@@ -114,6 +107,6 @@ function setInitialMarketPrices() {
 
 
 ///////////////////////
-farmersMarket();
-
+updateMessageBox(startupMessage);
 setInitialMarketPrices();
+
