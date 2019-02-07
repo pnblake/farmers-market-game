@@ -5,19 +5,6 @@ let day = 1;
 let cash = 1000;
 let loanAmount = 1000;
 
-let userInventory = {
-    numOfCarrots: 0,
-    priceOfCarrots: 0,
-    numOfAvocados: 0,
-    priceOfAvocados: 0,
-    numOfApples: 0,
-    priceOfApples: 0,
-    numOfGrapes: 0,
-    priceOfGrapes: 0,
-    numOfPeppers: 0,
-    priceOfPeppers: 0
-}
-
 class Fruit {
     constructor(name, userQuantity, userBoughtPrice, marketPrice, normMinPrice, normMaxPrice){
         this.name = name;
@@ -38,7 +25,7 @@ let fruitCollection = [carrots, avocados, apples, grapes, peppers];
 
 
 ///////////////////////////////////////////////////////////
-//DOM VARIABLES
+//DOM VARIABLES                                          //
 ///////////////////////////////////////////////////////////
 const messageBox = document.body.querySelector(".message-box");
 const displayedCarrotPrice = document.body.querySelector(".carrots-market-price-number");
@@ -53,10 +40,21 @@ const buyButton = document.body.querySelector(".buy-button");
 const sellButton = document.body.querySelector(".sell-button");
 const doNothingButton = document.body.querySelector(".do-nothing-button");
 const transactionFruits = document.getElementsByName("fruit");
+const carrotsInventoryNumber = document.querySelector(".carrots-inventory-number");
+const avocadosInventoryNumber = document.querySelector(".avocados-inventory-number");
+const applesInventoryNumber = document.querySelector(".apples-inventory-number");
+const grapesInventoryNumber = document.querySelector(".grapes-inventory-number");
+const peppersInventoryNumber = document.querySelector(".peppers-inventory-number");
+
+const carrotsBoughtPrice = document.querySelector(".carrots-bought-price");
+const avocadosBoughtPrice = document.querySelector(".avocados-bought-price");
+const applesBoughtPrice = document.querySelector(".apples-bought-price");
+const grapesBoughtPrice = document.querySelector(".grapes-bought-price");
+const peppersBoughtPrice = document.querySelector(".peppers-bought-price");
 
 
 ///////////////////////////////////////////////////////////
-//EVENT LISTENERS
+//EVENT LISTENERS                                        //
 ///////////////////////////////////////////////////////////
 buyButton.addEventListener("click", buyProduce);
 sellButton.addEventListener("click", sellProduce);
@@ -81,28 +79,40 @@ function newDay(){
     debtCollector();
     updateDisplayedCash();
     updateDisplayedLoanAmount();
+    updateDisplayedInventory();
+    updateDisplayedBoughtPrice();
     //Update message board with scenario
-    //Update Market Prices GENERAL function here
+    //Update Market Prices (GENERAL VOLATILITY) function here
     //Update Price because of scenario function here
 
     //Bonus: Make sun set and rise again.
 }
 
 function buyProduce() {
-    let price = getPriceForTransaction();
-    console.log("Price for this transaction: " + price);
-
-
     newDay();
 }
 
 function sellProduce() {
+    //Stuff here
     newDay();
 }
 
 function doNothing(){
     newDay();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function getPriceForTransaction() {
     let selectedFruit = getTransactionFruitSelection();
@@ -133,6 +143,19 @@ function matchSelectedFruitToObject(selectedFruitName){
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 function checkWinLose(){
     if (cash === 0){
         alert("You've gone bankrupt! You lose!");
@@ -160,6 +183,32 @@ function updateDisplayedLoanAmount() {
     displayedLoan.textContent = loanAmount;
 }
 
+function updateDisplayedMarketPrice(){
+    displayedCarrotPrice.textContent = carrots.marketPrice;
+    displayedAvocadosPrice.textContent = avocados.marketPrice;
+    displayedApplesPrice.textContent = apples.marketPrice;
+    displayedGrapesPrice.textContent = grapes.marketPrice;
+    displayedPeppersPrice.textContent = peppers.marketPrice;
+}
+
+function updateDisplayedInventory(){
+    //This updates the displayed inventory numbers
+    carrotsInventoryNumber.textContent = carrots.userQuantity;
+    avocadosInventoryNumber.textContent = avocados.userQuantity;
+    applesInventoryNumber.textContent = apples.userQuantity;
+    grapesInventoryNumber.textContent = grapes.userQuantity;
+    peppersInventoryNumber.textContent = grapes.userQuantity;
+}
+
+function updateDisplayedBoughtPrice(){
+    //This updates the displayed bought price in the inventory section
+    carrotsBoughtPrice.textContent = carrots.userBoughtPrice;
+    avocadosBoughtPrice.textContent = avocados.userBoughtPrice;
+    applesBoughtPrice.textContent = apples.userBoughtPrice;
+    grapesBoughtPrice.textContent = grapes.userBoughtPrice;
+    peppersBoughtPrice.textContent = peppers.userBoughtPrice;
+}
+
 function debtCollector() {
     if (day % 7 == 0){
         console.log("The debt collector has arrived.");
@@ -175,7 +224,6 @@ function debtCollector() {
 function getRandomNumber(b, a){
     //Returns a random number between b (minimum) and a (maximum)
     let rando = Math.random() * (a - b) + b;
-    // console.log("Random number generated: " + rando);
     return rando;
 }
 
@@ -183,16 +231,7 @@ function convertToPriceFormat(num){
     //Converts a number into price format (0.00). NB: It returns a number, and thus won't have a dollar sign.
     let priceString = num.toFixed(2);
     let priceNumber = parseFloat(priceString);
-    // console.log("Number converted to price: " + priceNumber);
     return priceNumber;
-}
-
-function updateDisplayedMarketPrice(){
-    displayedCarrotPrice.textContent = carrots.marketPrice;
-    displayedAvocadosPrice.textContent = avocados.marketPrice;
-    displayedApplesPrice.textContent = apples.marketPrice;
-    displayedGrapesPrice.textContent = grapes.marketPrice;
-    displayedPeppersPrice.textContent = peppers.marketPrice;
 }
 
 
