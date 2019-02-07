@@ -33,7 +33,9 @@ const displayedAvocadosPrice = document.body.querySelector(".avocados-market-pri
 const displayedApplesPrice = document.body.querySelector(".apples-market-price-number");
 const displayedGrapesPrice = document.body.querySelector(".grapes-market-price-number");
 const displayedPeppersPrice = document.body.querySelector(".peppers-market-price-number");
-
+const displayedDay = document.body.querySelector(".day-number");
+const displayedCash = document.body.querySelector(".cash-on-hand-number");
+const displayedLoan = document.body.querySelector(".outstanding-loan-number");
 
 ///////////////////////////////////////////////////////////
 //MISCELLANEOUS VARIABLES
@@ -48,15 +50,61 @@ const startupMessage = "Welcome to the farmer's market! You've just followed you
 //GAMEPLAY FUNCTIONS
 //These will be called throughout the game by the main function above
 ///////////////////////////////////////////////////////////
+
+function newDay(){
+    day += 1;
+    checkWinLose();
+    updateDisplayedDay();
+    debtCollector();
+    updateDisplayedCash();
+    updateDisplayedLoanAmount();
+
+    //Bonus: Make sun set and rise again.
+}
+
+function checkWinLose(){
+    if (cash === 0){
+        alert("You've gone bankrupt! You lose!");
+    } else if (loanAmount === 0) {
+        alert("You've paid off your loan! You win!");
+    } else {
+        return false;
+    }
+}
+
 function updateMessageBox(newMessage){
     //This function updates the message box with an argued string.
     messageBox.innerHTML = `<p>${newMessage}</p>`;
 }
 
+function updateDisplayedDay() {
+    displayedDay.textContent = day;
+}
+
+function updateDisplayedCash() {
+    displayedCash.textContent = cash;
+}
+
+function updateDisplayedLoanAmount() {
+    displayedLoan.textContent = loanAmount;
+}
+
+function debtCollector() {
+    if (day % 7 == 0){
+        console.log("The debt collector has arrived.");
+        loanAmount -= 25;
+        cash -= 25;
+        return true;
+    } else {
+        console.log("The debt collector isn't coming today.");
+        return false;
+    }
+}
+
 function getRandomNumber(b, a){
     //Returns a random number between b (minimum) and a (maximum)
     let rando = Math.random() * (a - b) + b;
-    console.log("Random number generated: " + rando);
+    // console.log("Random number generated: " + rando);
     return rando;
 }
 
@@ -64,7 +112,7 @@ function convertToPriceFormat(num){
     //Converts a number into price format (0.00). NB: It returns a number, and thus won't have a dollar sign.
     let priceString = num.toFixed(2);
     let priceNumber = parseFloat(priceString);
-    console.log("Number converted to price: " + priceNumber);
+    // console.log("Number converted to price: " + priceNumber);
     return priceNumber;
 }
 
@@ -85,7 +133,7 @@ function getRandomPrice(b, a){
     //Returns a random price between numbers b (min) and a (max).
     let randoNum = getRandomNumber(b, a);
     let randoPrice = convertToPriceFormat(randoNum);
-    console.log("New random price generated: " + randoPrice);
+    // console.log("New random price generated: " + randoPrice);
     return randoPrice;
 }
 
@@ -94,19 +142,20 @@ function setInitialMarketPrices() {
     //NB: It does not edit the price displayed in the DOM.
     for (let i = 0; i < fruitCollection.length; i++){
         let currentFruit = fruitCollection[i];
-        console.log("Currently working with: " + currentFruit.name);
+        // console.log("Currently working with: " + currentFruit.name);
         let min = currentFruit.normMinPrice - (currentFruit.normMinPrice * 0.15);
         let max = currentFruit.normMaxPrice - (currentFruit.normMaxPrice * 0.15);
         let initialPrice = getRandomPrice(min, max);
         currentFruit.marketPrice = initialPrice;
-        console.log(`The price of ${fruitCollection[i].name} is now ${fruitCollection[i].marketPrice}.`);
+        // console.log(`The price of ${fruitCollection[i].name} is now ${fruitCollection[i].marketPrice}.`);
     }
     updateDisplayedMarketPrice();
     return true;
 }
 
 
-///////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 updateMessageBox(startupMessage);
 setInitialMarketPrices();
-
+newDay();
