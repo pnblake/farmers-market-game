@@ -51,6 +51,7 @@ Here are the possible scenarios for each round.
 29. The government imposes a tariff on avocados imported from Mexico. Prices jump 15%. [426-450]
 30. Pests swarm apple orchards in large parts of the country. Prices jump 16%. [451-475]
 31. Mexico places an export ban on peppers over a diplomatic dispute. Prices jump 15%. [476-500]
+32. Just another uneventful day at the market. [501-700]
 
 
 ## Technologies

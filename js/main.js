@@ -23,6 +23,7 @@ let avocados = new Fruit("Avocados", 0, 0.00, 0.00, 2.00, 6.00);
 let apples = new Fruit("Apples", 0, 0.00, 0.00, 1.50, 3.50);
 let grapes = new Fruit("Grapes", 0, 0.00, 0.00, 3.00, 5.00);
 let peppers = new Fruit("Peppers", 0, 0.00, 0.00, 0.75, 3.50);
+
 let fruitCollection = [carrots, avocados, apples, grapes, peppers];
 
 
@@ -93,7 +94,7 @@ function newDay(){
 }
 
 function loadScenario(){
-    let rando = parseInt(getRandomNumber(0, 40), 10);
+    let rando = parseInt(getRandomNumber(6, 60), 10);
     console.log(rando);
 
     for(let i = 0; i < allScenarios.length; i++){
