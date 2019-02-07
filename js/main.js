@@ -76,12 +76,14 @@ const startupMessage = "Welcome to the farmer's market! You've just followed you
 function newDay(){
     day += 1;
     checkWinLose();
-    updateDisplayedDay();
     debtCollector();
+    generalMarketVolatility();
+    updateDisplayedDay();
     updateDisplayedCash();
     updateDisplayedLoanAmount();
     updateDisplayedInventory();
     updateDisplayedBoughtPrice();
+    updateDisplayedMarketPrice();
     //Update message board with scenario
     //Update Market Prices (GENERAL VOLATILITY) function here
     //Update Price because of scenario function here
@@ -202,6 +204,20 @@ function updateDisplayedBoughtPrice(){
     applesBoughtPrice.textContent = apples.userBoughtPrice.toFixed(2);
     grapesBoughtPrice.textContent = grapes.userBoughtPrice.toFixed(2);
     peppersBoughtPrice.textContent = peppers.userBoughtPrice.toFixed(2);
+}
+
+function generalMarketVolatility(){
+    //This function will cause market prices to fluctuate a little bit each round
+    for (let i = 0; i < fruitCollection.length; i++){
+        let currentProduce = fruitCollection[i];
+        let oldCurrentProducePrice = currentProduce.marketPrice;
+        let changeFactor = getRandomNumber(-0.5, 0.5);
+        let newCurrentProducePrice = oldCurrentProducePrice + (oldCurrentProducePrice*changeFactor);
+        newCurrentProducePrice = newCurrentProducePrice.toFixed(2);
+        newCurrentProducePrice = parseFloat(newCurrentProducePrice);
+        currentProduce.marketPrice = newCurrentProducePrice;
+        console.log(`VOLATILITY: ${currentProduce.name} now cost ${newCurrentProducePrice} after a ${changeFactor}% change.`);
+    }
 }
 
 function debtCollector() {
