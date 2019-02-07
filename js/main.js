@@ -1,3 +1,5 @@
+//NB: The English-language words "fruit" and "produce" are used interchangeably here.
+
 ///////////////////////////////////////////////////////////
 //GAME PLAY VARIABLES
 ///////////////////////////////////////////////////////////
@@ -45,13 +47,12 @@ const avocadosInventoryNumber = document.querySelector(".avocados-inventory-numb
 const applesInventoryNumber = document.querySelector(".apples-inventory-number");
 const grapesInventoryNumber = document.querySelector(".grapes-inventory-number");
 const peppersInventoryNumber = document.querySelector(".peppers-inventory-number");
-
 const carrotsBoughtPrice = document.querySelector(".carrots-bought-price");
 const avocadosBoughtPrice = document.querySelector(".avocados-bought-price");
 const applesBoughtPrice = document.querySelector(".apples-bought-price");
 const grapesBoughtPrice = document.querySelector(".grapes-bought-price");
 const peppersBoughtPrice = document.querySelector(".peppers-bought-price");
-
+const quantityInputField = document.querySelector(".quantity-input");
 
 ///////////////////////////////////////////////////////////
 //EVENT LISTENERS                                        //
@@ -89,7 +90,8 @@ function newDay(){
 }
 
 function buyProduce() {
-    getTransactionFruit();
+    let produceObject = getTransactionProduce();
+    getTransactionQuantity();
     newDay();
 }
 
@@ -102,27 +104,27 @@ function doNothing(){
     newDay();
 }
 
-function getTransactionFruit() {
+function getTransactionProduce() {
     //This should return the object corresponding to the fruit selected in the radio buttons form
     //This should be reusable for both the buy and sell transactions
-    let selectedFruitFormValue;
-    let fruitObject;
+    let selectedProduceFormValue;
     for (let i = 0; i < transactionFruits.length; i++){
         if (transactionFruits[i].checked){
-            selectedFruitFormValue = transactionFruits[i].value;
+            selectedProduceFormValue = transactionFruits[i].value;
         }
     }
-    // console.log("User has selected: " + selectedFruitFormValue + " (form value).");
-
     //Now let's match the form value to the actual object
     for (let i = 0; i < fruitCollection.length; i++){
         let currentFruitObject = fruitCollection[i];
-        if(currentFruitObject.name == selectedFruitFormValue){
-            // console.log("User has selected an object with name: " + currentFruitObject.name);
+        if(currentFruitObject.name == selectedProduceFormValue){
             return currentFruitObject;
         }
     }
+}
 
+function getTransactionQuantity() {
+    let quantity = parseInt(quantityInputField.value, 10);
+    return quantity;
 }
 
 function checkWinLose(){
