@@ -96,18 +96,20 @@ function buyProduce() {
     let producePrice = produceObject.marketPrice;
     let transactionQuantity = getTransactionQuantity();
     let totalPrice = producePrice * transactionQuantity;
+    // totalPrice = totalPrice.toFixed(2);
+    // totalPrice = parseFloat(totalPrice);
     console.log(`BUY ORDER: The user has placed an order for ${transactionQuantity} ${produceObject.name} at a price of ${producePrice}, or ${totalPrice} total.`);
     
     //Update user's bought price for this.
     if (produceObject.userBoughtPrice !== 0){
-        console.log("User already has some carrots, so we'll need to do a weighted-average of the prices.");
+        // console.log("User already has some carrots, so we'll need to do a weighted-average of the prices.");
         let weightedAverage = (((produceObject.userQuantity * produceObject.userBoughtPrice) + (transactionQuantity * producePrice)) / (produceObject.userQuantity + transactionQuantity));
         produceObject.userBoughtPrice = weightedAverage;
     } else if (produceObject.userQuantity == 0){
-        console.log("User doesn't have any of this produce, so we can just stick the unit market price in.");
+        // console.log("User doesn't have any of this produce, so we can just stick the unit market price in.");
         produceObject.userBoughtPrice = producePrice;
     } else {
-        console.log("There's a logic failure in the buyProduce() function.");
+        // console.log("There's a logic failure in the buyProduce() function.");
     }
 
     //Update user's quantity for this produce.
@@ -115,8 +117,8 @@ function buyProduce() {
     produceObject.userQuantity += transactionQuantity;
 
     //Update the user's cash-on-hand
+    // console.log("BUY: Total price " + totalPrice);
     cash -= totalPrice;
-    
 
     newDay();
 }
@@ -173,7 +175,7 @@ function updateDisplayedDay() {
 }
 
 function updateDisplayedCash() {
-    displayedCash.textContent = cash;
+    displayedCash.textContent = cash.toFixed(2);
 }
 
 function updateDisplayedLoanAmount() {
@@ -216,7 +218,6 @@ function generalMarketVolatility(){
         newCurrentProducePrice = newCurrentProducePrice.toFixed(2);
         newCurrentProducePrice = parseFloat(newCurrentProducePrice);
         currentProduce.marketPrice = newCurrentProducePrice;
-        console.log(`VOLATILITY: ${currentProduce.name} now cost ${newCurrentProducePrice} after a ${changeFactor}% change.`);
     }
 }
 
