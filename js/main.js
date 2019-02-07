@@ -89,6 +89,7 @@ function newDay(){
 }
 
 function buyProduce() {
+    getTransactionFruit();
     newDay();
 }
 
@@ -101,60 +102,28 @@ function doNothing(){
     newDay();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-function getPriceForTransaction() {
-    let selectedFruit = getTransactionFruitSelection();
-    let selectedFruitObject = matchSelectedFruitToObject(selectedFruit);
-    return selectedFruitObject.marketPrice;
-}
-
-function getTransactionFruitSelection() {
-    //This should return the fruit selected in the radio buttons form
+function getTransactionFruit() {
+    //This should return the object corresponding to the fruit selected in the radio buttons form
     //This should be reusable for both the buy and sell transactions
-    var selectedFruit;
+    let selectedFruitFormValue;
+    let fruitObject;
     for (let i = 0; i < transactionFruits.length; i++){
         if (transactionFruits[i].checked){
-            selectedFruit = transactionFruits[i].value;
+            selectedFruitFormValue = transactionFruits[i].value;
         }
     }
-    // console.log("User has selected: " + selectedFruit);
-    return selectedFruit;
-}
+    // console.log("User has selected: " + selectedFruitFormValue + " (form value).");
 
-function matchSelectedFruitToObject(selectedFruitName){
+    //Now let's match the form value to the actual object
     for (let i = 0; i < fruitCollection.length; i++){
-        let currentFruit = fruitCollection[i];
-        if(currentFruit.name == selectedFruitName){
-            // console.log("User has selected an object with name: " + currentFruit.name);
-            return currentFruit;
-        } 
+        let currentFruitObject = fruitCollection[i];
+        if(currentFruitObject.name == selectedFruitFormValue){
+            // console.log("User has selected an object with name: " + currentFruitObject.name);
+            return currentFruitObject;
+        }
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function checkWinLose(){
     if (cash === 0){
