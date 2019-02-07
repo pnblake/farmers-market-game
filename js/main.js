@@ -25,6 +25,11 @@ let fruitCollection = [carrots, avocados, apples, grapes, peppers];
 
 //DOM VARIABLES
 const messageBox = document.body.querySelector(".message-box");
+const displayedCarrotPrice = document.body.querySelector(".carrots-market-price-number");
+const displayedAvocadosPrice = document.body.querySelector(".avocados-market-price-number");
+const displayedApplesPrice = document.body.querySelector(".apples-market-price-number");
+const displayedGrapesPrice = document.body.querySelector(".grapes-market-price-number");
+const displayedPeppersPrice = document.body.querySelector(".peppers-market-price-number");
 //END DOM VARIABLES
 
 //MISCELLANEOUS VARIABLES
@@ -69,6 +74,14 @@ function convertToPriceFormat(num){
     return priceNumber;
 }
 
+function updateDisplayedMarketPrice(){
+    displayedCarrotPrice.textContent = carrots.marketPrice;
+    displayedAvocadosPrice.textContent = avocados.marketPrice;
+    displayedApplesPrice.textContent = apples.marketPrice;
+    displayedGrapesPrice.textContent = grapes.marketPrice;
+    displayedPeppersPrice.textContent = peppers.marketPrice;
+}
+
 
 //
 //STARTUP FUNCTIONS
@@ -95,7 +108,7 @@ function setInitialMarketPrices() {
         currentFruit.marketPrice = initialPrice;
         console.log(`The price of ${fruitCollection[i].name} is now ${fruitCollection[i].marketPrice}.`);
     }
-    //NEEDS call to DOM EDIT FUNCTION HERE.
+    updateDisplayedMarketPrice();
     return true;
 }
 
