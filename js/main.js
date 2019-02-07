@@ -91,7 +91,28 @@ function newDay(){
 
 function buyProduce() {
     let produceObject = getTransactionProduce();
-    getTransactionQuantity();
+    let producePrice = produceObject.marketPrice;
+    let transactionQuantity = getTransactionQuantity();
+    let totalPrice = producePrice * transactionQuantity;
+    console.log(`BUY ORDER: The user has placed an order for ${transactionQuantity} ${produceObject.name} at a price of ${producePrice}, or ${totalPrice} total.`);
+    
+    //Update user bought price for this.
+    if (produceObject.userBoughtPrice !== 0){
+        console.log("User already has some carrots, so we'll need to do a weighted-average of the prices.");
+        let weightedAverage = (((produceObject.userQuantity * produceObject.userBoughtPrice) + (transactionQuantity * producePrice)) / (produceObject.userQuantity + transactionQuantity));
+        produceObject.userBoughtPrice = weightedAverage;
+    } else if (produceObject.userQuantity == 0){
+        console.log("User doesn't have any of this produce, so we can just stick the unit market price in.");
+        produceObject.userBoughtPrice = producePrice;
+    } else {
+        console.log("There's a logic failure in the buyProduce() function.");
+    }
+
+    //Update user quantity for this produce.
+    //NB: This needs to go after the price weighting above, in order for the price-weighting function to work correctly
+    produceObject.userQuantity += transactionQuantity;
+    
+
     newDay();
 }
 
