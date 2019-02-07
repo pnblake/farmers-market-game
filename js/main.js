@@ -194,11 +194,11 @@ function updateDisplayedInventory(){
 
 function updateDisplayedBoughtPrice(){
     //This updates the displayed bought price in the inventory section
-    carrotsBoughtPrice.textContent = carrots.userBoughtPrice;
-    avocadosBoughtPrice.textContent = avocados.userBoughtPrice;
-    applesBoughtPrice.textContent = apples.userBoughtPrice;
-    grapesBoughtPrice.textContent = grapes.userBoughtPrice;
-    peppersBoughtPrice.textContent = peppers.userBoughtPrice;
+    carrotsBoughtPrice.textContent = carrots.userBoughtPrice.toFixed(2);
+    avocadosBoughtPrice.textContent = avocados.userBoughtPrice.toFixed(2);
+    applesBoughtPrice.textContent = apples.userBoughtPrice.toFixed(2);
+    grapesBoughtPrice.textContent = grapes.userBoughtPrice.toFixed(2);
+    peppersBoughtPrice.textContent = peppers.userBoughtPrice.toFixed(2);
 }
 
 function debtCollector() {
