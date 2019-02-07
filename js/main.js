@@ -96,7 +96,7 @@ function buyProduce() {
     let totalPrice = producePrice * transactionQuantity;
     console.log(`BUY ORDER: The user has placed an order for ${transactionQuantity} ${produceObject.name} at a price of ${producePrice}, or ${totalPrice} total.`);
     
-    //Update user bought price for this.
+    //Update user's bought price for this.
     if (produceObject.userBoughtPrice !== 0){
         console.log("User already has some carrots, so we'll need to do a weighted-average of the prices.");
         let weightedAverage = (((produceObject.userQuantity * produceObject.userBoughtPrice) + (transactionQuantity * producePrice)) / (produceObject.userQuantity + transactionQuantity));
@@ -108,9 +108,12 @@ function buyProduce() {
         console.log("There's a logic failure in the buyProduce() function.");
     }
 
-    //Update user quantity for this produce.
+    //Update user's quantity for this produce.
     //NB: This needs to go after the price weighting above, in order for the price-weighting function to work correctly
     produceObject.userQuantity += transactionQuantity;
+
+    //Update the user's cash-on-hand
+    cash -= totalPrice;
     
 
     newDay();
@@ -149,9 +152,9 @@ function getTransactionQuantity() {
 }
 
 function checkWinLose(){
-    if (cash === 0){
+    if (cash <= 0){
         alert("You've gone bankrupt! You lose!");
-    } else if (loanAmount === 0) {
+    } else if (loanAmount <= 0) {
         alert("You've paid off your loan! You win!");
     } else {
         return false;
