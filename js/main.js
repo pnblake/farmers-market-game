@@ -96,9 +96,9 @@ function buyProduce() {
     let producePrice = produceObject.marketPrice;
     let transactionQuantity = getTransactionQuantity();
     let totalPrice = producePrice * transactionQuantity;
-    // totalPrice = totalPrice.toFixed(2);
-    // totalPrice = parseFloat(totalPrice);
-    console.log(`BUY ORDER: The user has placed an order for ${transactionQuantity} ${produceObject.name} at a price of ${producePrice}, or ${totalPrice} total.`);
+    totalPrice = totalPrice.toFixed(2);
+    totalPrice = parseFloat(totalPrice);
+    console.log(`BUY ORDER: The user has placed a buy order for ${transactionQuantity} ${produceObject.name} at a price of ${producePrice} each, or ${totalPrice} in total.`);
     
     //Update user's bought price for this.
     if (produceObject.userBoughtPrice !== 0){
@@ -124,7 +124,20 @@ function buyProduce() {
 }
 
 function sellProduce() {
-    //Stuff here
+    let produceObject = getTransactionProduce();
+    let producePrice = produceObject.marketPrice;
+    let transactionQuantity = getTransactionQuantity();
+    let totalPrice = producePrice * transactionQuantity;
+    totalPrice = totalPrice.toFixed(2);
+    totalPrice = parseFloat(totalPrice);
+    console.log(`SELL ORDER: The user has placed a sell order for ${transactionQuantity} ${produceObject.name} at a price of ${producePrice} each, or ${totalPrice} in total.`);
+
+    //Update user's quantity
+    produceObject.userQuantity -= transactionQuantity;
+
+    //Update user's cash
+    cash += totalPrice;
+
     newDay();
 }
 
@@ -228,7 +241,7 @@ function debtCollector() {
         cash -= 25;
         return true;
     } else {
-        console.log("The debt collector isn't coming today.");
+        // console.log("The debt collector isn't coming today.");
         return false;
     }
 }
