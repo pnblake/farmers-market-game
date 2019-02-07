@@ -93,8 +93,17 @@ function newDay(){
 }
 
 function loadScenario(){
-    let rando = parseInt(getRandomNumber(0, 500), 10);
+    let rando = parseInt(getRandomNumber(0, 40), 10);
     console.log(rando);
+
+    for(let i = 0; i < allScenarios.length; i++){
+        let currentScenario = allScenarios[i];
+        if(rando >= currentScenario.probDown && rando <= currentScenario.probUp){
+            // console.log(currentScenario.scenarioMessage);
+            updateMessageBox(currentScenario.scenarioMessage);
+            currentScenario.scenarioFunc();
+        }
+    }
 }
 
 function buyProduce() {
