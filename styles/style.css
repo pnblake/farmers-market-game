@@ -33,6 +33,7 @@ main {
   padding: 1rem;
   min-width: 60%;
   min-height: 80%;
+  max-width: 70%;
   display: grid;
   grid-template-rows: 2fr 0.5fr 1fr 0.5fr 2fr;
   grid-template-columns: 1fr;
@@ -54,7 +55,8 @@ main {
   grid-row: 1;
   width: 100%;
   font-family: 'Allerta Stencil', sans-serif;
-  font-size: 1rem;
+  line-height: 13pt;
+  font-size: 100%;
   margin: 0 auto;
   color: #f4f4f0;
   padding: 1rem;
@@ -83,7 +85,7 @@ main {
 
 .inventory-and-market-price-container {
   font-family: 'Allerta Stencil', sans-serif;
-  font-size: 18pt;
+  font-size: 150%;
   line-height: 8pt;
   grid-row: 5;
   width: 100%;

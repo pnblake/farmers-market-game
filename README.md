@@ -39,7 +39,7 @@ Here are the possible scenarios for each round.
 https://mycolor.space/?hex=%2301A1FF&sub=1
 
 
-## Special Thanks
+## Special Thanks and Credits
 Vecteezy
 
 The Boxy SVG App
@@ -53,3 +53,7 @@ Infinite rotation: https://codepen.io/vitoralberto/pen/OPYyYB
 Background gradient generated with: https://www.css-gradient.com/
 
 CSS Bluring: https://codepen.io/sandstedt/pen/NxNGPd
+
+Random Numbers: https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+
+Chopping (or padding) numbers to two places: https://stackoverflow.com/questions/3163070/javascript-displaying-a-float-to-2-decimal-places
