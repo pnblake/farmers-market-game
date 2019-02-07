@@ -40,14 +40,14 @@ let basketballTeamScenario = new Scenario(
 
 let ratsScenario = new Scenario(
     "Rats snuck in to your stand over night and ate some of your fruit!",
-    (function(){decreaseArbitraryFruit()}),
+    (function(){decreaseArbitraryProduce()}),
     51,
     60
 )
 
 let fridgeDoorOpenScenario = new Scenario(
     "You left a refrigerator door open over night, and some of your fruit spoiled!",
-    (function(){decreaseArbitraryFruit()}),
+    (function(){decreaseArbitraryProduce()}),
     61,
     65
 )
@@ -122,6 +122,25 @@ let youthGangScenario = new Scenario(
     160
 )
 
+let airConditionerBrokeScenario = new Scenario(
+    "The air condition unit that keeps you cool during the summer months broke. You paid $60 of your cash to have it repaired.",
+    (function(){decreaseCashByNumber(60)}),
+    161,
+    170   
+)
+
+let politicianBuyUSAScenario = new Scenario(
+    "A politician went on TV to criticize vendors for importing produce grown outside the USA. Prices plummit 20% as vendors flock to traditional grocery stores.",
+    (function(){decreaseAllMarketPricesByPercentage(20)}),
+    171,
+    180
+)
+
+let healthInspectionScenario = new Scenario(
+    "The health department found a strain of dangerous e. coli in the market. They seize all your fruit. You got a measly $10 in compensation.",
+
+)
+
 
 console.log(allScenarios);
 
@@ -145,16 +164,35 @@ function decreaseCashByNumber(num){
     updateDisplayedCash();
 }
 
-function decreaseArbitraryFruit(){
+function decreaseArbitraryProduce(){
     //This cycles through all of the users fruit and decreases it by a random amount
     for(let i = 0; i < fruitCollection.length; i++){
         let currentFruit = fruitCollection[i];
-        console.log()
         if(currentFruit.userQuantity > 1){
             let amountOfFruitEaten = getRandomNumber(1, currentFruit.userQuantity);
             amountOfFruitEaten = parseInt(amountOfFruitEaten, 10);
             currentFruit.userQuantity -= amountOfFruitEaten;
             updateDisplayedInventory();
         }
+    }
+}
+
+function decreaseAllMarketPricesByPercentage(percentDecrease){
+    for(let i = 0; i < fruitCollection.length; i++){
+        let currentFruit = fruitCollection[i];
+        let currentFruitMarketPrice = currentFruit.marketPrice;
+        currentFruitMarketPrice = currentFruitMarketPrice - (currentFruitMarketPrice * (percentDecrease / 100));
+        currentFruitMarketPriceFixed = currentFruitMarketPrice.toFixed(2);
+        currentFruit.marketPrice = currentFruitMarketPriceFixed;
+        updateDisplayedMarketPrice();
+    }
+}
+
+
+
+function zeroProduce(){
+    for(let i = 0; i < fruitCollection.length; i++){
+        fruitCollection[i].userQuantity = 0;
+        updateDisplayedInventory();
     }
 }
