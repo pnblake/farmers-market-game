@@ -5,6 +5,19 @@ let day = 1;
 let cash = 1000;
 let loanAmount = 1000;
 
+let userInventory = {
+    numOfCarrots: 0,
+    priceOfCarrots: 0,
+    numOfAvocados: 0,
+    priceOfAvocados: 0,
+    numOfApples: 0,
+    priceOfApples: 0,
+    numOfGrapes: 0,
+    priceOfGrapes: 0,
+    numOfPeppers: 0,
+    priceOfPeppers: 0
+}
+
 class Fruit {
     constructor(name, userQuantity, userBoughtPrice, marketPrice, normMinPrice, normMaxPrice){
         this.name = name;
@@ -39,6 +52,7 @@ const displayedLoan = document.body.querySelector(".outstanding-loan-number");
 const buyButton = document.body.querySelector(".buy-button");
 const sellButton = document.body.querySelector(".sell-button");
 const doNothingButton = document.body.querySelector(".do-nothing-button");
+const transactionFruits = document.getElementsByName("fruit");
 
 
 ///////////////////////////////////////////////////////////
@@ -75,6 +89,10 @@ function newDay(){
 }
 
 function buyProduce() {
+    let price = getPriceForTransaction();
+    console.log("Price for this transaction: " + price);
+
+
     newDay();
 }
 
@@ -86,9 +104,33 @@ function doNothing(){
     newDay();
 }
 
+function getPriceForTransaction() {
+    let selectedFruit = getTransactionFruitSelection();
+    let selectedFruitObject = matchSelectedFruitToObject(selectedFruit);
+    return selectedFruitObject.marketPrice;
+}
+
 function getTransactionFruitSelection() {
     //This should return the fruit selected in the radio buttons form
     //This should be reusable for both the buy and sell transactions
+    var selectedFruit;
+    for (let i = 0; i < transactionFruits.length; i++){
+        if (transactionFruits[i].checked){
+            selectedFruit = transactionFruits[i].value;
+        }
+    }
+    // console.log("User has selected: " + selectedFruit);
+    return selectedFruit;
+}
+
+function matchSelectedFruitToObject(selectedFruitName){
+    for (let i = 0; i < fruitCollection.length; i++){
+        let currentFruit = fruitCollection[i];
+        if(currentFruit.name == selectedFruitName){
+            // console.log("User has selected an object with name: " + currentFruit.name);
+            return currentFruit;
+        } 
+    }
 }
 
 function checkWinLose(){
@@ -188,4 +230,3 @@ function setInitialMarketPrices() {
 ///////////////////////////////////////////////////////////
 updateMessageBox(startupMessage);
 setInitialMarketPrices();
-newDay();

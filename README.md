@@ -57,3 +57,5 @@ CSS Bluring: https://codepen.io/sandstedt/pen/NxNGPd
 Random Numbers: https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
 
 Chopping (or padding) numbers to two places: https://stackoverflow.com/questions/3163070/javascript-displaying-a-float-to-2-decimal-places
+
+Working with Radio button forms: https://stackoverflow.com/questions/9561625/checking-value-of-radio-button-group-via-javascript
