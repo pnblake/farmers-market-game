@@ -36,14 +36,23 @@ const displayedPeppersPrice = document.body.querySelector(".peppers-market-price
 const displayedDay = document.body.querySelector(".day-number");
 const displayedCash = document.body.querySelector(".cash-on-hand-number");
 const displayedLoan = document.body.querySelector(".outstanding-loan-number");
+const buyButton = document.body.querySelector(".buy-button");
+const sellButton = document.body.querySelector(".sell-button");
+const doNothingButton = document.body.querySelector(".do-nothing-button");
+
+
+///////////////////////////////////////////////////////////
+//EVENT LISTENERS
+///////////////////////////////////////////////////////////
+buyButton.addEventListener("click", buyProduce);
+sellButton.addEventListener("click", sellProduce);
+doNothingButton.addEventListener("click", doNothing);
+
 
 ///////////////////////////////////////////////////////////
 //MISCELLANEOUS VARIABLES
 ///////////////////////////////////////////////////////////
 const startupMessage = "Welcome to the farmer's market! You've just followed your dreams and opened your fruit and vegetable stand at the market. <br><br> But you couldn't do it alone – you've had to depend on BankCorp to offer you a loan, and they want to see their money back!   A representative from their office will be visiting you every 7 days to collect $25. <br><br> If you can turn a profit and pay off your loan - you win! However, if your cash box runs dry – you lose! <br><br> Each day, you'll get a scenario here that will drive fluctuations in market prices.  Prices will always vary a little bit, but the news of the day will affect one commodity a lot. <br><br> Each day, you can make one transaction – or decide to do nothing. <br><br> Now, go out there and make some money! BankCorp will be calling soon!";
-
-
-
 
 
 ///////////////////////////////////////////////////////////
@@ -58,8 +67,28 @@ function newDay(){
     debtCollector();
     updateDisplayedCash();
     updateDisplayedLoanAmount();
+    //Update message board with scenario
+    //Update Market Prices GENERAL function here
+    //Update Price because of scenario function here
 
     //Bonus: Make sun set and rise again.
+}
+
+function buyProduce() {
+    newDay();
+}
+
+function sellProduce() {
+    newDay();
+}
+
+function doNothing(){
+    newDay();
+}
+
+function getTransactionFruitSelection() {
+    //This should return the fruit selected in the radio buttons form
+    //This should be reusable for both the buy and sell transactions
 }
 
 function checkWinLose(){
@@ -123,6 +152,7 @@ function updateDisplayedMarketPrice(){
     displayedGrapesPrice.textContent = grapes.marketPrice;
     displayedPeppersPrice.textContent = peppers.marketPrice;
 }
+
 
 ///////////////////////////////////////////////////////////
 //STARTUP FUNCTIONS
