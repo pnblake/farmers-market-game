@@ -222,7 +222,7 @@ let appleOrchardPestsScenario = new Scenario(
 
 let peppersMexicoExportBanScenario = new Scenario(
     "Mexico places an export ban on peppers over a diplomatic dispute. Prices jump.",
-    (function(){increaseSpecificProducePriceByPercentage(peppers, 150);}),
+    (function(){increaseSpecificProducePriceByPercentage(peppers, 250);}),
     476,
     500
 )
