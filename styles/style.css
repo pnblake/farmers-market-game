@@ -272,7 +272,7 @@ footer {
 /* MEDIA QUERIES SECTION */
 /*  */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
   body{
     width: 100vw;
     font-size: 9pt;
@@ -291,7 +291,13 @@ footer {
     animation: spin 120s infinite linear;
     z-index: -2;
   }
-  .main {
+  .quantity-input-container{
+    font-size: 10pt;
+  }
+  .quantity-input {
+    font-size: 12pt;
+  }
+  main {
     width: 90%;
   }
   .modal-container > div {
