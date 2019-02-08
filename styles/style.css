@@ -188,3 +188,11 @@ main {
     transform: rotate(359deg);
   }
 }
+
+
+/* MEDIA QUERIES */
+
+/* Quick and dirty to make it work somewhat on mobile */
+@media only screen and (max-device-width: 667px) {
+  font-family: sans-serif;
+}
