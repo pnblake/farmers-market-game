@@ -185,6 +185,9 @@ footer {
 .footer-item {
   padding: 0.2rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
 }
 
 .footer-box-1 {
