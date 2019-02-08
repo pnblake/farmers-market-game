@@ -42,7 +42,7 @@ A number of websites and apps were used to help make this project possible and a
 
 + https://mycolor.space/ --> Used for defining a color palette.
 
-+ http://Vecteezy.com --> For most, if not all, of the graphics.
++ Vectors by <a href="https://www.vecteezy.com">vecteezy.com</a>
 
 + The Boxy SVG App --> https://boxy-svg.com/ --> Used to edit SVG graphics.
 
@@ -64,4 +64,4 @@ A number of websites and apps were used to help make this project possible and a
 
 + https://www.favicon-generator.org/ --> For quickly and easily generating FavIcons of the necessary size.
 
-https://www.webdesignerdepot.com/2012/10/creating-a-modal-window-with-html5-and-css3/ --> For help creating the opening modal.
++ https://www.webdesignerdepot.com/2012/10/creating-a-modal-window-with-html5-and-css3/ --> For help creating the opening modal.
