@@ -15,6 +15,8 @@ If you can survive till your loan is paid off, you win!
 
 However, if you default on your debt - ~~it's straight to debtor's prison!~~ you lose! 
 
+## What's happening under the hood
+
 
 ## Background
 

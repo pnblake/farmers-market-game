@@ -57,8 +57,6 @@ body {
 main {
   margin: auto;
   padding: 1rem;
-  /* min-width: 60%; */
-  /* max-width: 70%; */
   width: 80%;
   min-height: 40%;
   display: grid;
@@ -99,7 +97,6 @@ main {
 
 .finance-info-string {
   font-family: sans-serif;
-  /* padding: 1% 2%; */
   color: black;
 }
 
@@ -170,28 +167,12 @@ main {
   color: white;
 }
 
-.inventory-box {
-  width: 50%;
-}
-
 .inventory-string {
   margin: 0;
 }
 
-.market-price-lists {
-  width: 50%;
-  padding: 1rem;
-  border-left: 1px solid white;
-}
-
 .market-price-string {
   margin: 0;
-}
-
-.bottom-box-heading {
-  text-transform: uppercase;
-  text-align: center;
-  text-decoration: underline;
 }
 
 footer {
@@ -243,10 +224,6 @@ footer {
   border-right: 1px solid #FFFFFF;
 }
 
-/* .sunset {
-  animation: sunset 4s 1 linear;
-} */
-
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
@@ -264,14 +241,6 @@ footer {
     transform: rotate(359deg);
   }
 }
-
-/* @keyframes sunset {
-  0%  {transform: translateY(0); transform: rotate(0deg);}
-  50% {transform: translateY(200%);}
-  100% {transform: translateY(0); transform: rotate(359deg);}
-} */
-
-
 
 /*  */
 /* MEDIA QUERIES SECTION */
