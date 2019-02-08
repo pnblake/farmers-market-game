@@ -337,7 +337,7 @@ function setInitialMarketPrices() {
 
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
-updateMessageBox(startupMessage);
+// updateMessageBox(startupMessage);
 setInitialMarketPrices();
 updateDisplayedMarketPrice();
 // updateNetworth();
