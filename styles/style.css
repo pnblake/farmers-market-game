@@ -26,6 +26,34 @@ body {
   z-index: -1;
 }
 
+.modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+}
+
+.modal-container > div {
+  width: 40%;
+  position: relative;
+  background-color: orange;
+  color: black;
+  border-radius: 20px;
+  padding: 2%;
+  margin: 20% auto;
+}
+
+.lets-go-button {
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 2%;
+  border-radius: 7px;
+}
+
 main {
   margin: auto;
   padding: 1rem;

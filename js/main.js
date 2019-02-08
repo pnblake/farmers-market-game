@@ -56,6 +56,9 @@ const grapesBoughtPrice = document.querySelector(".grapes-bought-price");
 const peppersBoughtPrice = document.querySelector(".peppers-bought-price");
 const quantityInputField = document.querySelector(".quantity-input");
 // const displayedNetworth = document.body.querySelector(".networth-number");
+const modalCloseButton = document.querySelector(".lets-go-button");
+const modalContainer = document.querySelector(".modal-container");
+
 
 ///////////////////////////////////////////////////////////
 //EVENT LISTENERS                                        //
@@ -63,13 +66,7 @@ const quantityInputField = document.querySelector(".quantity-input");
 buyButton.addEventListener("click", buyProduce);
 sellButton.addEventListener("click", sellProduce);
 doNothingButton.addEventListener("click", doNothing);
-
-
-///////////////////////////////////////////////////////////
-//MISCELLANEOUS VARIABLES                                //
-///////////////////////////////////////////////////////////
-const startupMessage = "Welcome to the farmer's market! You've just followed your dreams and opened your fruit and vegetable stand at the market. <br><br> But you couldn't do it alone – you've had to depend on BankCorp to offer you a loan, and they want to see their money back!   A representative from their office will be visiting you every 7 days to collect $25. <br><br> If you can turn a profit and pay off your loan - you win! However, if your cash box runs dry – you lose! <br><br> Each day, you'll get a scenario here that will drive fluctuations in market prices.  Prices will always vary a little bit, but the news of the day will affect one commodity a lot. <br><br> Each day, you can make one transaction – or decide to do nothing. <br><br> Now, go out there and make some money! BankCorp will be calling soon!";
-
+modalCloseButton.addEventListener("click", closeModal);
 
 ///////////////////////////////////////////////////////////
 //GAMEPLAY FUNCTIONS
@@ -313,6 +310,10 @@ function setInitialMarketPrices() {
         // console.log(`The price of ${fruitCollection[i].name} is now ${fruitCollection[i].marketPrice}.`);
     }
     return true;
+}
+
+function closeModal() {
+    modalContainer.style.display = "none";
 }
 
 // function updateNetworth(){
