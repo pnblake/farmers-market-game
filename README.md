@@ -56,3 +56,5 @@ A number of websites and apps were used to help make this project possible and a
 + https://stackoverflow.com/questions/9561625/checking-value-of-radio-button-group-via-javascript --> For help with working with radio button forms.
 
 + https://www.favicon-generator.org/ --> For quickly and easily generating FavIcons of the necessary size.
+
+https://www.webdesignerdepot.com/2012/10/creating-a-modal-window-with-html5-and-css3/ --> For help creating the opening modal.

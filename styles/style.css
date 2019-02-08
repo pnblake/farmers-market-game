@@ -265,3 +265,37 @@ footer {
   50% {transform: translateY(200%);}
   100% {transform: translateY(0); transform: rotate(359deg);}
 } */
+
+
+
+/*  */
+/* MEDIA QUERIES SECTION */
+/*  */
+
+@media only screen and (max-width: 500px) {
+  body{
+    width: 100vw;
+    font-size: 9pt;
+  }
+  .bg {
+    display: none;
+  }
+  .sun {
+    width: 20rem;
+    height: 20rem;
+    position: fixed;
+    top: -10rem;
+    right: -10rem;
+    filter: blur(3px);
+    -webkit-animation: spin 120s infinite linear;
+    animation: spin 120s infinite linear;
+    z-index: -2;
+  }
+  .main {
+    width: 90%;
+  }
+  .modal-container > div {
+    width: 90%;
+    padding: 3%;
+  }
+}
