@@ -119,6 +119,11 @@ main {
   font-size: 20pt;
 }
 
+.transaction-fruit-selection {
+  display: flex;
+  flex-flow: row;
+}
+
 .quantity-input-container {
   margin-left: 3%;
   display: flex;
@@ -292,7 +297,7 @@ footer {
     z-index: -2;
   }
   .transaction-options-box {
-    font-size: 25pt;
+    font-size: 20pt;
   }
   .quantity-input-container{
     font-size: 10pt;
