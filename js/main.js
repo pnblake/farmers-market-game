@@ -94,7 +94,7 @@ function newDay(){
 }
 
 function loadScenario(){
-    let rando = parseInt(getRandomNumber(6, 60), 10);
+    let rando = parseInt(getRandomNumber(0, 700), 10);
     console.log(rando);
 
     for(let i = 0; i < allScenarios.length; i++){

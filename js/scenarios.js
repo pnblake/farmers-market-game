@@ -138,9 +138,101 @@ let politicianBuyUSAScenario = new Scenario(
 
 let healthInspectionScenario = new Scenario(
     "The health department found a strain of dangerous e. coli in the market. They seize all your fruit. You got a measly $10 in compensation.",
-
+    (function(){zeroProduce(); increaseCashByNumber(10);}),
+    181,
+    200
 )
 
+let presidentialVisitScenario = new Scenario(
+    "The President came to the market to deliver a speech. He stopped by your stand. Now everyone wants to buy your stuff. Market prices jump 50%.",
+    (function(){increaseAllMarketPricesByPercentage(50)}),
+    201,
+    225
+)
+
+let michelleObamaCampaignScenario = new Scenario(
+    "Michelle Obama launched a healthy eating campaign, encouraging Americans to shop at farmers markets. All fruit prices jump 30%.",
+    (function(){increaseAllMarketPricesByPercentage(30)}),
+    226,
+    250
+)
+
+let advertisingCampaignScenario = new Scenario(
+    "The market launched an advertising campaign, increasing demand. All market prices jump 10%.",
+    (function(){increaseAllMarketPricesByPercentage(10);}),
+    251,
+    275
+)
+
+let avocadoTruckCustomsScenario = new Scenario(
+    "A truck delivering avocados from Mexico gets held-up in customs. Avocado prices skyrocket 50%.",
+    (function(){increaseSpecificProducePriceByPercentage(avocados, 50);}),
+    276,
+    300
+)
+
+let carrotTruckCrashScenario = new Scenario(
+    "A truck delivering avocados from Mexico gets held-up in customs. Avocado prices skyrocket 50%.",
+    (function(){increaseSpecificProducePriceByPercentage(carrots, 23);}),
+    301,
+    325
+)
+
+let appleTruckBreakdownScenario = new Scenario(
+    "A truck delivering apples breaks down on the interstate. Prices jump 18%.",
+    (function(){increaseSpecificProducePriceByPercentage(apples, 18);}),
+    326,
+    350
+)
+
+let grapeTruckHijackScenario = new Scenario(
+    "A truck carrying grapes gets hijacked by bandits. Prices jump 15%.",
+    (function(){increaseSpecificProducePriceByPercentage(grapes, 15);}),
+    351,
+    375
+)
+
+let lostPepperTruckScenario = new Scenario(
+    "A truck carrying peppers gets lost in a rural area and misses its delivery. Prices jump 20%.",
+    (function(){increaseSpecificProducePriceByPercentage(peppers, 20);}),
+    376,
+    400
+)
+
+let carrotDiseaseScenario = new Scenario(
+    "A disease ravages carrot farms across the country. Supply decreases. Prices jump 10%.",
+    (function(){increaseSpecificProducePriceByPercentage(carrots, 10);}),
+    401,
+    425
+)
+
+let avocadosTariffScenario = new Scenario(
+    "The government imposes a tariff on avocados imported from Mexico. Prices jump 15%.",
+    (function(){increaseSpecificProducePriceByPercentage(avocados, 15);}),
+    426,
+    450
+)
+
+let appleOrchardPestsScenario = new Scenario(
+    "Pests swarm apple orchards in large parts of the country. Prices jump 16%.",
+    (function(){increaseSpecificProducePriceByPercentage(apples, 16);}),
+    451,
+    475
+)
+
+let peppersMexicoExportBanScenario = new Scenario(
+    "Mexico places an export ban on peppers over a diplomatic dispute. Prices jump 15%.",
+    (function(){increaseSpecificProducePriceByPercentage(peppers, 15);}),
+    476,
+    500
+)
+
+let uneventfulDayScenario = new Scenario(
+    "Just another uneventful day at the market.",
+    (function(){}),
+    501,
+    700
+)
 
 console.log(allScenarios);
 
@@ -182,13 +274,37 @@ function decreaseAllMarketPricesByPercentage(percentDecrease){
         let currentFruit = fruitCollection[i];
         let currentFruitMarketPrice = currentFruit.marketPrice;
         currentFruitMarketPrice = currentFruitMarketPrice - (currentFruitMarketPrice * (percentDecrease / 100));
-        currentFruitMarketPriceFixed = currentFruitMarketPrice.toFixed(2);
-        currentFruit.marketPrice = currentFruitMarketPriceFixed;
+        currentFruitMarketPrice = currentFruitMarketPrice.toFixed(2);
+        currentFruitMarketPrice = parseFloat(currentFruitMarketPrice);
+        currentFruit.marketPrice = currentFruitMarketPrice;
         updateDisplayedMarketPrice();
     }
 }
 
+function increaseAllMarketPricesByPercentage(percentIncrease){
+    for(let i = 0; i < fruitCollection.length; i++){
+        let produce = fruitCollection[i];
+        let oldProducePrice = produce.marketPrice;
+        let newProducePrice = oldProducePrice + (oldProducePrice * (percentIncrease / 100));
+        newProducePrice = newProducePrice.toFixed(2);
+        newProducePrice = parseFloat(newProducePrice);
+        produce.marketPrice = newProducePrice;
+        updateDisplayedMarketPrice();
+    }
+}
 
+function increaseSpecificProducePriceByPercentage(produce, percentIncrease){
+    let newMarketPrice = produce.marketPrice + (produce.marketPrice * (percentIncrease / 100));
+    newMarketPrice = newMarketPrice.toFixed(2);
+    newMarketPrice = parseFloat(newMarketPrice);
+    produce.marketPrice = newMarketPrice;
+    updateDisplayedMarketPrice();
+}
+
+function increaseCashByNumber(num){
+    cash += num;
+    updateDisplayedCash();
+}
 
 function zeroProduce(){
     for(let i = 0; i < fruitCollection.length; i++){
