@@ -24,7 +24,6 @@ body {
   left: 0;
   right: 0;
   z-index: -1;
-  /* filter: blur(1.5px); */
 }
 
 main {
@@ -66,25 +65,21 @@ main {
 }
 
 .finance-status-box {
-  grid-row: 2;
+  background-color: orange;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* border-bottom: 1px solid black; */
 }
 
 .finance-info-string {
   font-family: sans-serif;
-  font-size: 16pt;
-  padding: 1% 2%;
-  background: orange;
-  border-radius: 10px;
-  color: white;
-  font-family: 'Pacifico', cursive;
+  /* padding: 1% 2%; */
+  color: black;
 }
 
 .finance-number {
-  font-weight: normal;
+  font-weight: bolder;
+}
+
+.day-number {
   font-weight: bolder;
 }
 
@@ -155,13 +150,20 @@ main {
 
 .inventory-box {
   width: 50%;
-  padding: 1rem;
+}
+
+.inventory-string {
+  margin: 0;
 }
 
 .market-price-lists {
   width: 50%;
   padding: 1rem;
   border-left: 1px solid white;
+}
+
+.market-price-string {
+  margin: 0;
 }
 
 .bottom-box-heading {
@@ -188,6 +190,7 @@ footer {
   align-items: center;
   justify-content: center;
   flex-flow: column;
+  text-align: center;
 }
 
 .footer-box-1 {
