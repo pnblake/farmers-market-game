@@ -109,8 +109,8 @@ let coldBuyHeaterScenario = new Scenario(
 )
 
 let mafiaProtection = new Scenario(
-    "A local mafia member demanded protection money, you pay 18% of your current cash.",
-    (function(){decreaseCashByPercentage(18)}),
+    "A local mafia member demanded protection money, you pay 10% of your current cash.",
+    (function(){decreaseCashByPercentage(10)}),
     141,
     150
 )
@@ -130,99 +130,99 @@ let airConditionerBrokeScenario = new Scenario(
 )
 
 let politicianBuyUSAScenario = new Scenario(
-    "A politician went on TV to criticize vendors for importing produce grown outside the USA. Prices plummit 20% as vendors flock to traditional grocery stores.",
-    (function(){decreaseAllMarketPricesByPercentage(20)}),
+    "A politician went on TV to criticize your farmers market for importing produce grown outside the USA. Prices plummit 50% amid decreased demand as vendors flock to traditional grocery stores.",
+    (function(){decreaseAllMarketPricesByPercentage(50)}),
     171,
     180
 )
 
 let healthInspectionScenario = new Scenario(
-    "The health department found a strain of dangerous e. coli in the market. They seize all your fruit. You got a measly $10 in compensation.",
-    (function(){zeroProduce(); increaseCashByNumber(10);}),
+    "The health department found a strain of dangerous e. coli in the market. They seize all your fruit. You got a measly $100 in compensation.",
+    (function(){zeroProduce(); increaseCashByNumber(100);}),
     181,
     200
 )
 
 let presidentialVisitScenario = new Scenario(
-    "The President came to the market to deliver a speech. He stopped by your stand. Now everyone wants to buy your stuff. Market prices jump 50%.",
-    (function(){increaseAllMarketPricesByPercentage(50)}),
+    "The President came to the market to deliver a speech. He stopped by your stand. Now everyone wants to buy your stuff. Market prices jump.",
+    (function(){increaseAllMarketPricesByPercentage(150)}),
     201,
     225
 )
 
 let michelleObamaCampaignScenario = new Scenario(
-    "Michelle Obama launched a healthy eating campaign, encouraging Americans to shop at farmers markets. All fruit prices jump 30%.",
-    (function(){increaseAllMarketPricesByPercentage(30)}),
+    "Michelle Obama launched a healthy eating campaign, encouraging Americans to shop at farmers markets. All fruit prices jump amid increased demand.",
+    (function(){increaseAllMarketPricesByPercentage(130)}),
     226,
     250
 )
 
 let advertisingCampaignScenario = new Scenario(
-    "The market launched an advertising campaign, increasing demand. All market prices jump 10%.",
-    (function(){increaseAllMarketPricesByPercentage(10);}),
+    "The market launched an advertising campaign, increasing demand. All market prices jump.",
+    (function(){increaseAllMarketPricesByPercentage(100);}),
     251,
     275
 )
 
 let avocadoTruckCustomsScenario = new Scenario(
-    "A truck delivering avocados from Mexico gets held-up in customs. Avocado prices skyrocket 50%.",
-    (function(){increaseSpecificProducePriceByPercentage(avocados, 50);}),
+    "A truck delivering avocados from Mexico gets held-up in customs. Avocado prices skyrocket.",
+    (function(){increaseSpecificProducePriceByPercentage(avocados, 200);}),
     276,
     300
 )
 
 let carrotTruckCrashScenario = new Scenario(
-    "A truck delivering avocados from Mexico gets held-up in customs. Avocado prices skyrocket 50%.",
-    (function(){increaseSpecificProducePriceByPercentage(carrots, 23);}),
+    "A truck delivering carrots is involved in a crash. Carrot prices shoot up.",
+    (function(){increaseSpecificProducePriceByPercentage(carrots, 180);}),
     301,
     325
 )
 
 let appleTruckBreakdownScenario = new Scenario(
-    "A truck delivering apples breaks down on the interstate. Prices jump 18%.",
-    (function(){increaseSpecificProducePriceByPercentage(apples, 18);}),
+    "A truck delivering apples breaks down on the interstate. Prices jump.",
+    (function(){increaseSpecificProducePriceByPercentage(apples, 90);}),
     326,
     350
 )
 
 let grapeTruckHijackScenario = new Scenario(
-    "A truck carrying grapes gets hijacked by bandits. Prices jump 15%.",
-    (function(){increaseSpecificProducePriceByPercentage(grapes, 15);}),
+    "A truck carrying grapes gets hijacked by bandits. Prices jump.",
+    (function(){increaseSpecificProducePriceByPercentage(grapes, 110);}),
     351,
     375
 )
 
 let lostPepperTruckScenario = new Scenario(
-    "A truck carrying peppers gets lost in a rural area and misses its delivery. Prices jump 20%.",
-    (function(){increaseSpecificProducePriceByPercentage(peppers, 20);}),
+    "A truck carrying peppers gets lost in a rural area and misses its delivery. Prices jump.",
+    (function(){increaseSpecificProducePriceByPercentage(peppers, 120);}),
     376,
     400
 )
 
 let carrotDiseaseScenario = new Scenario(
-    "A disease ravages carrot farms across the country. Supply decreases. Prices jump 10%.",
-    (function(){increaseSpecificProducePriceByPercentage(carrots, 10);}),
+    "A disease ravages carrot farms across the country. Supply decreases. Prices jump.",
+    (function(){increaseSpecificProducePriceByPercentage(carrots, 110);}),
     401,
     425
 )
 
 let avocadosTariffScenario = new Scenario(
-    "The government imposes a tariff on avocados imported from Mexico. Prices jump 15%.",
-    (function(){increaseSpecificProducePriceByPercentage(avocados, 15);}),
+    "The government imposes a tariff on avocados imported from Mexico. Prices jump.",
+    (function(){increaseSpecificProducePriceByPercentage(avocados, 150);}),
     426,
     450
 )
 
 let appleOrchardPestsScenario = new Scenario(
-    "Pests swarm apple orchards in large parts of the country. Prices jump 16%.",
-    (function(){increaseSpecificProducePriceByPercentage(apples, 16);}),
+    "Pests swarm apple orchards in large parts of the country. Prices jump.",
+    (function(){increaseSpecificProducePriceByPercentage(apples, 160);}),
     451,
     475
 )
 
 let peppersMexicoExportBanScenario = new Scenario(
-    "Mexico places an export ban on peppers over a diplomatic dispute. Prices jump 15%.",
-    (function(){increaseSpecificProducePriceByPercentage(peppers, 15);}),
+    "Mexico places an export ban on peppers over a diplomatic dispute. Prices jump.",
+    (function(){increaseSpecificProducePriceByPercentage(peppers, 150);}),
     476,
     500
 )
@@ -231,7 +231,7 @@ let uneventfulDayScenario = new Scenario(
     "Just another uneventful day at the market.",
     (function(){}),
     501,
-    700
+    1000
 )
 
 console.log(allScenarios);
