@@ -170,6 +170,55 @@ main {
   text-decoration: underline;
 }
 
+footer {
+  min-width: 100vw;
+  min-height: 10vh;
+  background-color: #3D4756;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.footer-item {
+  padding: 0.2rem;
+  display: flex;
+}
+
+.footer-box-1 {
+  border-right: 1px solid #FFFFFF;
+}
+
+.footer-box-2 {
+  border-right: 1px solid #FFFFFF;
+}
+
+.footer-box-3 {
+  border-right: 1px solid #FFFFFF;
+}
+
+.footer-box-4 {
+  border-right: 1px solid #FFFFFF;
+}
+
+.footer-box-5 {
+  border-right: 1px solid #FFFFFF;
+}
+
+.footer-box-6 {
+  border-right: 1px solid #FFFFFF;
+}
+
+.footer-box-7 {
+  border-right: 1px solid #FFFFFF;
+}
+
+/* .sunset {
+  animation: sunset 4s 1 linear;
+} */
+
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
@@ -187,3 +236,9 @@ main {
     transform: rotate(359deg);
   }
 }
+
+/* @keyframes sunset {
+  0%  {transform: translateY(0); transform: rotate(0deg);}
+  50% {transform: translateY(200%);}
+  100% {transform: translateY(0); transform: rotate(359deg);}
+} */

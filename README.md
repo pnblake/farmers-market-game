@@ -27,13 +27,15 @@ It uses HTML, CSS, and Javascript, and attempts to use SVG graphics as often as 
 
 In the future, it'd be nice to completely refresh the UI, as well as add a "net worth" section with takes into account cash-on-hand and the value of fruit held in the inventory.
 
+I'd also like to make the sun "set" and "rise" with each newDay() function call, as a visual signal to the user that a new day has begun.
+
 ## Credits and Thanks
 
 A number of websites and apps were used to help make this project possible and as part of my learning process. They are listed below in no particular order.
 
 + https://mycolor.space/ --> Used for defining a color palette.
 
-+ Vecteezy.com --> For most, if not all, of the graphics.
++ http://Vecteezy.com --> For most, if not all, of the graphics.
 
 + The Boxy SVG App --> https://boxy-svg.com/ --> Used to edit SVG graphics.
 
