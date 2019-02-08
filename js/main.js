@@ -6,7 +6,6 @@
 let day = 1;
 let cash = 1000;
 let loanAmount = 1000;
-// let networth = 1000;
 
 class Fruit {
     constructor(name, userQuantity, userBoughtPrice, marketPrice, normMinPrice, normMaxPrice){
@@ -55,7 +54,6 @@ const applesBoughtPrice = document.querySelector(".apples-bought-price");
 const grapesBoughtPrice = document.querySelector(".grapes-bought-price");
 const peppersBoughtPrice = document.querySelector(".peppers-bought-price");
 const quantityInputField = document.querySelector(".quantity-input");
-// const displayedNetworth = document.body.querySelector(".networth-number");
 const modalCloseButton = document.querySelector(".lets-go-button");
 const modalContainer = document.querySelector(".modal-container");
 
@@ -79,25 +77,20 @@ function newDay(){
     debtCollector();
     generalMarketVolatility();
     loadScenario();
-    // updateNetworth();
     updateDisplayedDay();
     updateDisplayedCash();
     updateDisplayedLoanAmount();
     updateDisplayedInventory();
     updateDisplayedBoughtPrice();
     updateDisplayedMarketPrice();
-
-    //Bonus: Make sun set and rise again.
 }
 
 function loadScenario(){
     let rando = parseInt(getRandomNumber(0, 1000), 10);
-    // console.log(rando);
 
     for(let i = 0; i < allScenarios.length; i++){
         let currentScenario = allScenarios[i];
         if(rando >= currentScenario.probDown && rando <= currentScenario.probUp){
-            // console.log(currentScenario.scenarioMessage);
             updateMessageBox(currentScenario.scenarioMessage);
             currentScenario.scenarioFunc();
         }
@@ -113,31 +106,22 @@ function buyProduce() {
     totalPrice = parseFloat(totalPrice);
     console.log(`BUY ORDER: The user has placed a buy order for ${transactionQuantity} ${produceObject.name} at a price of ${producePrice} each, or ${totalPrice} in total.`);
     
-    //Check to see if the user has the money to do this.
     if(totalPrice > cash){
         alert("You don't have the cash for this transaction.");
         console.log("Transaction canceled.");
         return;
     }
 
-    //Update user's bought price for this.
     if (produceObject.userBoughtPrice !== 0){
-        // console.log("User already has some carrots, so we'll need to do a weighted-average of the prices.");
         let weightedAverage = (((produceObject.userQuantity * produceObject.userBoughtPrice) + (transactionQuantity * producePrice)) / (produceObject.userQuantity + transactionQuantity));
         produceObject.userBoughtPrice = weightedAverage;
     } else if (produceObject.userQuantity == 0){
-        // console.log("User doesn't have any of this produce, so we can just stick the unit market price in.");
         produceObject.userBoughtPrice = producePrice;
     } else {
-        // console.log("There's a logic failure in the buyProduce() function.");
     }
 
-    //Update user's quantity for this produce.
-    //NB: This needs to go after the price weighting above, in order for the price-weighting function to work correctly
     produceObject.userQuantity += transactionQuantity;
 
-    //Update the user's cash-on-hand
-    // console.log("BUY: Total price " + totalPrice);
     cash -= totalPrice;
 
     newDay();
@@ -173,15 +157,12 @@ function doNothing(){
 }
 
 function getTransactionProduce() {
-    //This should return the object corresponding to the fruit selected in the radio buttons form
-    //This should be reusable for both the buy and sell transactions
     let selectedProduceFormValue;
     for (let i = 0; i < transactionFruits.length; i++){
         if (transactionFruits[i].checked){
             selectedProduceFormValue = transactionFruits[i].value;
         }
     }
-    //Now let's match the form value to the actual object
     for (let i = 0; i < fruitCollection.length; i++){
         let currentFruitObject = fruitCollection[i];
         if(currentFruitObject.name == selectedProduceFormValue){
@@ -206,7 +187,6 @@ function checkWinLose(){
 }
 
 function updateMessageBox(newMessage){
-    //This function updates the message box with an argued string.
     messageBox.innerHTML = `<p>${newMessage}</p>`;
 }
 
@@ -231,7 +211,6 @@ function updateDisplayedMarketPrice(){
 }
 
 function updateDisplayedInventory(){
-    //This updates the displayed inventory numbers
     carrotsInventoryNumber.textContent = carrots.userQuantity;
     avocadosInventoryNumber.textContent = avocados.userQuantity;
     applesInventoryNumber.textContent = apples.userQuantity;
@@ -240,7 +219,6 @@ function updateDisplayedInventory(){
 }
 
 function updateDisplayedBoughtPrice(){
-    //This updates the displayed bought price in the inventory section
     carrotsBoughtPrice.textContent = carrots.userBoughtPrice.toFixed(2);
     avocadosBoughtPrice.textContent = avocados.userBoughtPrice.toFixed(2);
     applesBoughtPrice.textContent = apples.userBoughtPrice.toFixed(2);
@@ -253,9 +231,6 @@ function generalMarketVolatility(){
         let currentProduce = fruitCollection[i];
         let min = currentProduce.normMinPrice + (currentProduce.normMinPrice * 0.5);
         let max = currentProduce.normMaxPrice - (currentProduce.normMaxPrice * 0.5);
-        // console.log("Current produce: " + currentProduce.name);
-        // console.log("Min: " + min);
-        // console.log("Max: " + max);
         let newPrice = getRandomPrice(min, max);
         currentProduce.marketPrice = newPrice;
         updateDisplayedMarketPrice();
@@ -271,7 +246,6 @@ function debtCollector() {
         cash -= 25;
         return true;
     } else {
-        // console.log("The debt collector isn't coming today.");
         return false;
     }
 }
@@ -293,21 +267,18 @@ function getRandomPrice(b, a){
     //Returns a random price between numbers b (min) and a (max).
     let randoNum = getRandomNumber(b, a);
     let randoPrice = convertToPriceFormat(randoNum);
-    // console.log("New random price generated: " + randoPrice);
     return randoPrice;
 }
 
 function setInitialMarketPrices() {
-    //Sets the day-1 market prices for the fruit.
+    //Sets the day-1 market prices for the produce.
     //NB: It does not edit the price displayed in the DOM.
     for (let i = 0; i < fruitCollection.length; i++){
         let currentFruit = fruitCollection[i];
-        // console.log("Currently working with: " + currentFruit.name);
         let min = currentFruit.normMinPrice - (currentFruit.normMinPrice * 0.15);
         let max = currentFruit.normMaxPrice + (currentFruit.normMaxPrice * 0.15);
         let initialPrice = getRandomPrice(min, max);
         currentFruit.marketPrice = initialPrice;
-        // console.log(`The price of ${fruitCollection[i].name} is now ${fruitCollection[i].marketPrice}.`);
     }
     return true;
 }
@@ -316,29 +287,8 @@ function closeModal() {
     modalContainer.style.display = "none";
 }
 
-// function updateNetworth(){
-//     let produceInventoryWorth = 0;
-//     for (let i = 0; i < fruitCollection.length; i++){
-//         let currentProduce = fruitCollection[i];
-//         let perUnitCost = currentProduce.userBoughtPrice;
-//         let userAmount = currentProduce.userQuantity;
-//         let thisProduceWorth = perUnitCost * userAmount;
-//         console.log(`Just checked ${currentProduce.name}, and it's worth ${thisProduceWorth}`);
-//         produceInventoryWorth += thisProduceWorth;
-//     }
-//     console.log("Produce inventory worth: " + produceInventoryWorth);
-//     networth = produceInventoryWorth + cash;
-//     console.log("Networth: " + networth);
-
-//     //Update displayed networth
-//     displayedNetworth.textContent = networth;
-//     return true;
-// }
-
 
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
-// updateMessageBox(startupMessage);
 setInitialMarketPrices();
 updateDisplayedMarketPrice();
-// updateNetworth();
