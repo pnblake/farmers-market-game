@@ -16,28 +16,41 @@ If you can survive till your loan is paid off, you win!
 However, if you default on your debt - ~~it's straight to debtor's prison!~~ you lose! 
 
 
-## Technologies
-### Color Pallette
-https://mycolor.space/?hex=%2301A1FF&sub=1
+## Background
+
+This project was done as part of my Web Development Immersive course at General Assembly in Washington, DC.
+
+It uses HTML, CSS, and Javascript, and attempts to use SVG graphics as often as possible.
 
 
-## Special Thanks and Credits
-Vecteezy
+## Going forward
 
-The Boxy SVG App
+In the future, it'd be nice to completely refresh the UI, as well as add a "net worth" section with takes into account cash-on-hand and the value of fruit held in the inventory.
 
-https://css-tricks.com/using-svg/ --> For some basics of SVG
+## Credits and Thanks
 
-https://www.the-art-of-web.com/css/3d-transforms/
+A number of websites and apps were used to help make this project possible and as part of my learning process. They are listed below in no particular order.
 
-Infinite rotation: https://codepen.io/vitoralberto/pen/OPYyYB
++ https://mycolor.space/ --> Used for defining a color palette.
 
-Background gradient generated with: https://www.css-gradient.com/
++ Vecteezy.com --> For most, if not all, of the graphics.
 
-CSS Bluring: https://codepen.io/sandstedt/pen/NxNGPd
++ The Boxy SVG App --> https://boxy-svg.com/ --> Used to edit SVG graphics.
 
-Random Numbers: https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
++ https://css-tricks.com/using-svg/ --> For some basics of SVG.
 
-Chopping (or padding) numbers to two places: https://stackoverflow.com/questions/3163070/javascript-displaying-a-float-to-2-decimal-places
++ https://www.the-art-of-web.com/css/3d-transforms/ --> For understanding CSS animation
 
-Working with Radio button forms: https://stackoverflow.com/questions/9561625/checking-value-of-radio-button-group-via-javascript
++ https://codepen.io/vitoralberto/pen/OPYyYB --> For help with inifinate rotation animation.
+
++ https://www.css-gradient.com/ --> For generating a background gradient.
+
++ https://codepen.io/sandstedt/pen/NxNGPd --> For blurring elements using CSS (in this case, the sun graphic)
+
++ https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range --> For help with generating random numbers in a defined range.
+
++ https://stackoverflow.com/questions/3163070/javascript-displaying-a-float-to-2-decimal-places --> For help manipulating some of my larger floating point number variables.
+
++ https://stackoverflow.com/questions/9561625/checking-value-of-radio-button-group-via-javascript --> For help with working with radio button forms.
+
++ https://www.favicon-generator.org/ --> For quickly and easily generating FavIcons of the necessary size.
