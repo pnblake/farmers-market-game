@@ -22,6 +22,11 @@ This project was done as part of my Web Development Immersive course at General 
 
 It uses HTML, CSS, and Javascript, and attempts to use SVG graphics as often as possible.
 
+## Technologies used
++ HTML5
++ CSS3
++ Javascript
+
 
 ## Going forward
 
