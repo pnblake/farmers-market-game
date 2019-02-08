@@ -43,7 +43,7 @@ body {
   color: black;
   border-radius: 20px;
   padding: 2%;
-  margin: 20% auto;
+  margin: 15% auto;
 }
 
 .lets-go-button {
@@ -290,6 +290,9 @@ footer {
     -webkit-animation: spin 120s infinite linear;
     animation: spin 120s infinite linear;
     z-index: -2;
+  }
+  .transaction-options-box {
+    font-size: 25pt;
   }
   .quantity-input-container{
     font-size: 10pt;
