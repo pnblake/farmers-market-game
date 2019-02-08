@@ -95,7 +95,7 @@ function newDay(){
 
 function loadScenario(){
     let rando = parseInt(getRandomNumber(0, 1000), 10);
-    console.log(rando);
+    // console.log(rando);
 
     for(let i = 0; i < allScenarios.length; i++){
         let currentScenario = allScenarios[i];
@@ -116,6 +116,13 @@ function buyProduce() {
     totalPrice = parseFloat(totalPrice);
     console.log(`BUY ORDER: The user has placed a buy order for ${transactionQuantity} ${produceObject.name} at a price of ${producePrice} each, or ${totalPrice} in total.`);
     
+    //Check to see if the user has the money to do this.
+    if(totalPrice > cash){
+        alert("You don't have the cash for this transaction.");
+        console.log("Transaction canceled.");
+        return;
+    }
+
     //Update user's bought price for this.
     if (produceObject.userBoughtPrice !== 0){
         // console.log("User already has some carrots, so we'll need to do a weighted-average of the prices.");
@@ -147,6 +154,13 @@ function sellProduce() {
     totalPrice = totalPrice.toFixed(2);
     totalPrice = parseFloat(totalPrice);
     console.log(`SELL ORDER: The user has placed a sell order for ${transactionQuantity} ${produceObject.name} at a price of ${producePrice} each, or ${totalPrice} in total.`);
+
+    //Check to see if the user has the fruit to sell
+    if(transactionQuantity > produceObject.userQuantity){
+        alert(`You don't have that many ${produceObject.name} to sell.`);
+        console.log("Transaction canceled.");
+        return;
+    }
 
     //Update user's quantity
     produceObject.userQuantity -= transactionQuantity;
