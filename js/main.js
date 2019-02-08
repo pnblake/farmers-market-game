@@ -6,6 +6,7 @@
 let day = 1;
 let cash = 1000;
 let loanAmount = 1000;
+// let networth = 1000;
 
 class Fruit {
     constructor(name, userQuantity, userBoughtPrice, marketPrice, normMinPrice, normMaxPrice){
@@ -19,9 +20,9 @@ class Fruit {
 }
 
 let carrots = new Fruit("Carrots", 0, 0.00, 0.00, 0.50, 3.00);
-let avocados = new Fruit("Avocados", 0, 0.00, 0.00, 2.00, 6.00);
-let apples = new Fruit("Apples", 0, 0.00, 0.00, 1.50, 3.50);
-let grapes = new Fruit("Grapes", 0, 0.00, 0.00, 3.00, 5.00);
+let avocados = new Fruit("Avocados", 0, 0.00, 0.00, 1.00, 6.50);
+let apples = new Fruit("Apples", 0, 0.00, 0.00, 1.00, 4.50);
+let grapes = new Fruit("Grapes", 0, 0.00, 0.00, 1.25, 6.00);
 let peppers = new Fruit("Peppers", 0, 0.00, 0.00, 0.75, 3.50);
 
 let fruitCollection = [carrots, avocados, apples, grapes, peppers];
@@ -54,6 +55,7 @@ const applesBoughtPrice = document.querySelector(".apples-bought-price");
 const grapesBoughtPrice = document.querySelector(".grapes-bought-price");
 const peppersBoughtPrice = document.querySelector(".peppers-bought-price");
 const quantityInputField = document.querySelector(".quantity-input");
+// const displayedNetworth = document.body.querySelector(".networth-number");
 
 ///////////////////////////////////////////////////////////
 //EVENT LISTENERS                                        //
@@ -80,15 +82,13 @@ function newDay(){
     debtCollector();
     generalMarketVolatility();
     loadScenario();
+    // updateNetworth();
     updateDisplayedDay();
     updateDisplayedCash();
     updateDisplayedLoanAmount();
     updateDisplayedInventory();
     updateDisplayedBoughtPrice();
     updateDisplayedMarketPrice();
-    //Update message board with scenario
-    //Update Market Prices (GENERAL VOLATILITY) function here
-    //Update Price because of scenario function here
 
     //Bonus: Make sun set and rise again.
 }
@@ -238,17 +238,19 @@ function updateDisplayedBoughtPrice(){
 }
 
 function generalMarketVolatility(){
-    //This function will cause market prices to fluctuate a little bit each round
-    // for (let i = 0; i < fruitCollection.length; i++){
-    //     let currentProduce = fruitCollection[i];
-    //     let oldCurrentProducePrice = currentProduce.marketPrice;
-    //     let changeFactor = getRandomNumber(-0.5, 0.5);
-    //     let newCurrentProducePrice = oldCurrentProducePrice + (oldCurrentProducePrice*changeFactor);
-    //     newCurrentProducePrice = newCurrentProducePrice.toFixed(2);
-    //     newCurrentProducePrice = parseFloat(newCurrentProducePrice);
-    //     currentProduce.marketPrice = newCurrentProducePrice;
-    // }
-    setInitialMarketPrices();
+    for (let i = 0; i < fruitCollection.length; i++){
+        let currentProduce = fruitCollection[i];
+        let min = currentProduce.normMinPrice + (currentProduce.normMinPrice * 0.5);
+        let max = currentProduce.normMaxPrice - (currentProduce.normMaxPrice * 0.5);
+        // console.log("Current produce: " + currentProduce.name);
+        // console.log("Min: " + min);
+        // console.log("Max: " + max);
+        let newPrice = getRandomPrice(min, max);
+        currentProduce.marketPrice = newPrice;
+        updateDisplayedMarketPrice();
+    }
+
+    // setInitialMarketPrices();  //Disable the above and activate this for more market volatility.
 }
 
 function debtCollector() {
@@ -291,7 +293,7 @@ function setInitialMarketPrices() {
         let currentFruit = fruitCollection[i];
         // console.log("Currently working with: " + currentFruit.name);
         let min = currentFruit.normMinPrice - (currentFruit.normMinPrice * 0.15);
-        let max = currentFruit.normMaxPrice - (currentFruit.normMaxPrice * 0.15);
+        let max = currentFruit.normMaxPrice + (currentFruit.normMaxPrice * 0.15);
         let initialPrice = getRandomPrice(min, max);
         currentFruit.marketPrice = initialPrice;
         // console.log(`The price of ${fruitCollection[i].name} is now ${fruitCollection[i].marketPrice}.`);
@@ -299,9 +301,29 @@ function setInitialMarketPrices() {
     return true;
 }
 
+// function updateNetworth(){
+//     let produceInventoryWorth = 0;
+//     for (let i = 0; i < fruitCollection.length; i++){
+//         let currentProduce = fruitCollection[i];
+//         let perUnitCost = currentProduce.userBoughtPrice;
+//         let userAmount = currentProduce.userQuantity;
+//         let thisProduceWorth = perUnitCost * userAmount;
+//         console.log(`Just checked ${currentProduce.name}, and it's worth ${thisProduceWorth}`);
+//         produceInventoryWorth += thisProduceWorth;
+//     }
+//     console.log("Produce inventory worth: " + produceInventoryWorth);
+//     networth = produceInventoryWorth + cash;
+//     console.log("Networth: " + networth);
+
+//     //Update displayed networth
+//     displayedNetworth.textContent = networth;
+//     return true;
+// }
+
 
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 updateMessageBox(startupMessage);
 setInitialMarketPrices();
 updateDisplayedMarketPrice();
+// updateNetworth();
