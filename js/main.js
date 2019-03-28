@@ -1,7 +1,7 @@
 //NB: The English-language words "fruit" and "produce" are used interchangeably here.
 
 ///////////////////////////////////////////////////////////
-//GAME PLAY VARIABLES
+//GAME PLAY VARIABLES                                    //
 ///////////////////////////////////////////////////////////
 let day = 1;
 let cash = 1000;
@@ -66,10 +66,11 @@ sellButton.addEventListener("click", sellProduce);
 doNothingButton.addEventListener("click", doNothing);
 modalCloseButton.addEventListener("click", closeModal);
 
-///////////////////////////////////////////////////////////
-//GAMEPLAY FUNCTIONS
-//These will be called throughout the game by the main function above
-///////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////
+//GAMEPLAY FUNCTIONS                                                   //
+//These will be called throughout the game by the main function above  //
+/////////////////////////////////////////////////////////////////////////
 
 function newDay(){
     day += 1;
@@ -289,6 +290,7 @@ function closeModal() {
 
 
 ///////////////////////////////////////////////////////////
+// The below run at game start to set the environment    //
 ///////////////////////////////////////////////////////////
 setInitialMarketPrices();
 updateDisplayedMarketPrice();
