@@ -34,7 +34,11 @@ If you would like to tinker with the code, feel free to fork this repository and
 
 In the future, it'd be nice to completely refresh the UI, as well as add a "net worth" section with takes into account cash-on-hand and the value of fruit held in the inventory.
 
-I'd also like to make the sun "set" and "rise" with each newDay() function call, as a visual signal to the user that a new day has begun.
+I'd also like to add a leaderboard (90s arcade style) for those finish the game.
+
+And, it would be nice to tweak the loan amount so that gameplay is not nearly as long as it is right now.
+
+I'd also like to considing making the sun "set" and "rise" with each newDay() function call, as a visual signal to the user that a new day has begun.
 
 ## Contributing
 
@@ -77,15 +81,3 @@ A number of websites and apps were used to help make this project possible and a
 + https://www.favicon-generator.org/ --> For quickly and easily generating FavIcons of the necessary size.
 
 + https://www.webdesignerdepot.com/2012/10/creating-a-modal-window-with-html5-and-css3/ --> For help creating the opening modal.
-
-
-
-
-
-
-
-––––––
-
-
-
-
