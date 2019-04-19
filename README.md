@@ -1,11 +1,14 @@
-# Farmers' Market: A game of buying and selling
+# Farmer's Market: An addictive game of buying and selling
 
-## Introduction and rules
+A simple, yet addictive turn-based game of buying and selling, in which users compete against scenarios to maximize their profits and pay off their bank loan.
+
+## Gameplay rules
+
 _Farmer's Market_ is a simple game of buying and selling.
 
 The premise of the game is simple: You begin with $1000 loan to start your fruit and vegetable stand.
 
-Every day, you are given a new scenario (see below) will cause fruit and vegetable prices to fluctuate. Your goal is to take advantage of swings in the market to earn a profit – buy low, sell high!
+Every day, you are given a new scenario will cause produce prices to fluctuate. *Your goal is to take advantage of swings in the market to earn a profit – buy low, sell high!*
 
 Each day you may make one transaction - buy, sell, or _doing nothing_ (also considered a transaction).
 
@@ -15,28 +18,37 @@ If you can survive till your loan is paid off, you win!
 
 However, if you default on your debt - ~~it's straight to debtor's prison!~~ you lose! 
 
-## What's happening under the hood
-
-
 ## Background
 
-This project was done as part of my Web Development Immersive course at General Assembly in Washington, DC.
+This app was my first project during a Software Engineering Immersive course at General Assembly in Washington, DC.
 
 It uses HTML, CSS, and Javascript, and attempts to use SVG graphics as often as possible.
 
-## Technologies used
-+ HTML5
-+ CSS3
-+ Javascript
+## Getting Started
 
+To play the game, feel free to visit the live site at: https://pnblake.com/farmers-market-game/
 
-## Going forward
+If you would like to tinker with the code, feel free to fork this repository and clone it.
+
+## Looking ahead
 
 In the future, it'd be nice to completely refresh the UI, as well as add a "net worth" section with takes into account cash-on-hand and the value of fruit held in the inventory.
 
 I'd also like to make the sun "set" and "rise" with each newDay() function call, as a visual signal to the user that a new day has begun.
 
-## Credits and Thanks
+## Contributing
+
+I'm open to receiving pull-requests, and/or receiving issues. Thanks for helping out!
+
+## Authors
+
+* **Paul Blake** - [Portfolio](https://pnblake.com)
+
+## License
+
+This project is licensed under the GNU GPL v3 - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
 
 A number of websites and apps were used to help make this project possible and as part of my learning process. They are listed below in no particular order.
 
@@ -65,3 +77,15 @@ A number of websites and apps were used to help make this project possible and a
 + https://www.favicon-generator.org/ --> For quickly and easily generating FavIcons of the necessary size.
 
 + https://www.webdesignerdepot.com/2012/10/creating-a-modal-window-with-html5-and-css3/ --> For help creating the opening modal.
+
+
+
+
+
+
+
+––––––
+
+
+
+
