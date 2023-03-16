@@ -2,6 +2,8 @@
 
 A simple, yet addictive turn-based game of buying and selling, in which users compete against scenarios to maximize their profits and pay off their bank loan.
 
+I created this game as part of a Web Development course I took in the Winter/Spring of 2019.
+
 ## Gameplay rules
 
 _Farmer's Market_ is a simple game of buying and selling.
